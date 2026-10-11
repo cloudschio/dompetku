@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Target Tabungan - KAI Financial Tracker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        kai: {
+                            navy: '#002B49',
+                            blue: '#0D47A1',
+                            orange: '#ED6B23',
+                            bg: '#F4F6F9'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-kai-bg font-sans min-h-screen text-slate-800 pb-20 md:pb-0">
+
+    <!-- HEADER -->
+    <header class="bg-kai-navy text-white sticky top-0 z-40 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <a href="index.html" class="text-white text-lg"><i class="fa-solid fa-arrow-left"></i></a>
+                <div class="flex items-center space-x-2">
+                    <div class="bg-kai-orange text-white font-extrabold px-2 py-0.5 rounded text-sm">KAI</div>
+                    <span class="font-bold text-sm tracking-wide">Target Tabungan</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="flex max-w-7xl mx-auto">
+        <!-- SIDEBAR (Desktop) -->
+        <aside class="hidden md:flex flex-col w-64 bg-kai-navy text-white min-h-screen p-4 justify-between">
+            <div class="space-y-6">
+                <div class="bg-slate-800/60 p-3.5 rounded-xl border border-slate-700/50 flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-full bg-emerald-600 flex items-center justify-center font-bold text-white shadow">
+                        <i class="fa-solid fa-piggy-bank"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-slate-400">Modul System</p>
+                        <p class="text-sm font-bold text-white">Savings Tracker</p>
+                    </div>
+                </div>
+                <nav class="space-y-1">
+                    <a href="index.html" class="flex items-center space-x-3 text-slate-300 hover:bg-white/5 hover:text-white px-4 py-3 rounded-xl font-medium text-sm transition">
+                        <i class="fa-solid fa-chart-pie w-5"></i><span>Dashboard</span>
+                    </a>
+                    <a href="keuangan.html" class="flex items-center space-x-3 text-slate-300 hover:bg-white/5 hover:text-white px-4 py-3 rounded-xl font-medium text-sm transition">
+                        <i class="fa-solid fa-wallet w-5"></i><span>Catatan Keuangan</span>
+                    </a>
+                    <a href="tabungan.html" class="flex items-center space-x-3 bg-kai-blue text-white px-4 py-3 rounded-xl font-medium text-sm shadow">
+                        <i class="fa-solid fa-piggy-bank w-5"></i><span>Target Tabungan</span>
+                    </a>
+                    <a href="wishlist.html" class="flex items-center space-x-3 text-slate-300 hover:bg-white/5 hover:text-white px-4 py-3 rounded-xl font-medium text-sm transition">
+                        <i class="fa-solid fa-heart w-5"></i><span>Wishlist Impian</span>
+                    </a>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="flex-1 p-4 md:p-6 space-y-4 max-w-2xl mx-auto">
+            <!-- Add Saving Goal -->
+            <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 space-y-3">
+                <h3 class="text-sm font-bold text-kai-navy">Buat Target Tabungan Baru</h3>
+                <div class="grid grid-cols-2 gap-2">
+                    <input type="text" id="goalTitle" placeholder="Nama Impian (ex: Dana Darurat, Mudik)" class="col-span-2 bg-slate-50 border border-slate-300 rounded-lg p-2.5 text-xs text-slate-800 focus:outline-none focus:border-kai-blue">
+                    <input type="number" id="goalTarget" placeholder="Target Nominal (Rp)" class="col-span-2 bg-slate-50 border border-slate-300 rounded-lg p-2.5 text-xs text-slate-800 focus:outline-none focus:border-kai-blue">
+                </div>
+                <button onclick="addGoal()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs py-2.5 rounded-lg transition-all shadow">Tambah Target</button>
+            </div>
+
+            <!-- Goals List -->
+            <div id="savingsList" class="space-y-3">
+                <!-- Dynamic Items -->
+            </div>
+        </main>
+    </div>
+
+    <!-- BOTTOM MOBILE NAVIGATION -->
+    <div class="fixed bottom-0 left-0 right-0 bg-kai-navy text-white border-t border-slate-700 py-2.5 z-40 md:hidden">
+        <div class="grid grid-cols-4 text-center">
+            <a href="index.html" class="text-slate-300 hover:text-white flex flex-col items-center gap-1 text-[11px]">
+                <i class="fa-solid fa-chart-pie text-base"></i> Home
+            </a>
+            <a href="keuangan.html" class="text-slate-300 hover:text-white flex flex-col items-center gap-1 text-[11px]">
+                <i class="fa-solid fa-wallet text-base"></i> Keuangan
+            </a>
+            <a href="tabungan.html" class="text-kai-orange flex flex-col items-center gap-1 text-[11px] font-bold">
+                <i class="fa-solid fa-piggy-bank text-base"></i> Tabungan
+            </a>
+            <a href="wishlist.html" class="text-slate-300 hover:text-white flex flex-col items-center gap-1 text-[11px]">
+                <i class="fa-solid fa-heart text-base"></i> Wishlist
+            </a>
+        </div>
+    </div>
+
+    <script>
+        let savings = JSON.parse(localStorage.getItem('app_savings')) || [];
+
+        function formatRp(num) {
+            return 'Rp ' + Number(num).toLocaleString('id-ID');
+        }
+
+        function render() {
+            const list = document.getElementById('savingsList');
+            list.innerHTML = '';
+
+            if (savings.length === 0) {
+                list.innerHTML = `<div class="bg-white p-8 rounded-xl border border-slate-200 text-center text-xs text-slate-400">Belum ada target tabungan.</div>`;
+            }
+
+            savings.forEach((item, index) => {
+                const percent = Math.min(Math.round((item.current / item.target) * 100), 100);
+
+                const card = document.createElement('div');
+                card.className = 'bg-white p-4 rounded-xl shadow-sm border border-slate-200 space-y-3';
+                card.innerHTML = `
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h4 class="font-bold text-kai-navy text-sm">${item.title}</h4>
+                            <p class="text-xs text-slate-500 mt-0.5">${formatRp(item.current)} / <span class="text-emerald-600 font-semibold">${formatRp(item.target)}</span></p>
+                        </div>
+                        <button onclick="deleteGoal(${index})" class="text-slate-400 hover:text-rose-500 text-xs">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </div>
+
+                    <div class="w-full bg-slate-100 rounded-full h-2.5 overflow-hidden">
+                        <div class="bg-emerald-500 h-2.5 rounded-full transition-all duration-300" style="width: ${percent}%"></div>
+                    </div>
+
+                    <div class="flex justify-between items-center text-xs pt-1">
+                        <span class="text-slate-500 text-[11px] font-medium">${percent}% Terkumpul</span>
+                        <button onclick="deposit(${index})" class="bg-emerald-50 text-emerald-700 border border-emerald-200 px-3 py-1 rounded-lg text-xs font-bold hover:bg-emerald-100 transition">+ Nabung</button>
+                    </div>
+                `;
+                list.appendChild(card);
+            });
+
+            localStorage.setItem('app_savings', JSON.stringify(savings));
+        }
+
+        function addGoal() {
+            const title = document.getElementById('goalTitle').value.trim();
+            const target = parseFloat(document.getElementById('goalTarget').value);
+
+            if (!title || isNaN(target) || target <= 0) {
+                alert('Isi nama target dan nominal angka.');
+                return;
+            }
+
+            savings.push({ title, target, current: 0 });
+            document.getElementById('goalTitle').value = '';
+            document.getElementById('goalTarget').value = '';
+            render();
+        }
+
+        function deposit(index) {
+            const amount = prompt(`Setor tabungan untuk "${savings[index].title}" (Rp):`);
+            const num = parseFloat(amount);
+            if (!isNaN(num) && num > 0) {
+                savings[index].current += num;
+                render();
+            }
+        }
+
+        function deleteGoal(index) {
+            if (confirm('Hapus target tabungan ini?')) {
+                savings.splice(index, 1);
+                render();
+            }
+        }
+
+        render();
+    </script>
+</body>
+</html>

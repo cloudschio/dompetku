@@ -3,186 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wishlist Impian - KAI Financial Tracker</title>
+    <title>MyFinance - Wishlist</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        kai: {
-                            navy: '#002B49',
-                            blue: '#0D47A1',
-                            orange: '#ED6B23',
-                            bg: '#F4F6F9'
-                        }
-                    }
-                }
-            }
-        }
-    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
 </head>
-<body class="bg-kai-bg font-sans min-h-screen text-slate-800 pb-20 md:pb-0">
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen pb-24">
 
-    <!-- HEADER -->
-    <header class="bg-kai-navy text-white sticky top-0 z-40 shadow-md">
-        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
-            <div class="flex items-center space-x-3">
-                <a href="index.html" class="text-white text-lg"><i class="fa-solid fa-arrow-left"></i></a>
-                <div class="flex items-center space-x-2">
-                    <div class="bg-kai-orange text-white font-extrabold px-2 py-0.5 rounded text-sm">KAI</div>
-                    <span class="font-bold text-sm tracking-wide">Wishlist Impian</span>
+    <!-- Header Gradient -->
+    <div class="bg-gradient-to-b from-blue-600 to-sky-400 pt-8 pb-10 px-5 rounded-b-[2.5rem] shadow-sm text-white">
+        <div class="flex justify-between items-center">
+            <div>
+                <h1 class="text-lg font-bold">Wishlist Impian</h1>
+                <p class="text-xs text-sky-100 mt-1">Rencanakan barang impianmu di sini</p>
+            </div>
+            <button class="w-9 h-9 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/30">
+                <i data-lucide="plus" class="w-5 h-5"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Wishlist Cards Grid -->
+    <div class="px-5 mt-6 space-y-4">
+
+        <!-- Wishlist Item 1 -->
+        <div class="bg-white p-4 rounded-3xl border border-slate-100 shadow-sm flex items-center gap-4">
+            <div class="w-16 h-16 rounded-2xl bg-sky-50 text-sky-500 flex items-center justify-center flex-shrink-0">
+                <i data-lucide="laptop" class="w-8 h-8"></i>
+            </div>
+            <div class="flex-1">
+                <div class="flex justify-between items-start">
+                    <h3 class="text-xs font-bold text-slate-800">Laptop Workstation</h3>
+                    <span class="px-2 py-0.5 bg-amber-50 text-amber-600 rounded-full text-[9px] font-bold">Proses</span>
+                </div>
+                <p class="text-xs font-bold text-sky-600 mt-1">Rp 18.000.000</p>
+                <div class="w-full bg-slate-100 h-1.5 rounded-full mt-2 overflow-hidden">
+                    <div class="bg-sky-500 h-full rounded-full" style="width: 35%"></div>
                 </div>
             </div>
         </div>
-    </header>
 
-    <div class="flex max-w-7xl mx-auto">
-        <!-- SIDEBAR (Desktop) -->
-        <aside class="hidden md:flex flex-col w-64 bg-kai-navy text-white min-h-screen p-4 justify-between">
-            <div class="space-y-6">
-                <div class="bg-slate-800/60 p-3.5 rounded-xl border border-slate-700/50 flex items-center space-x-3">
-                    <div class="w-10 h-10 rounded-full bg-kai-orange flex items-center justify-center font-bold text-white shadow">
-                        <i class="fa-solid fa-heart"></i>
-                    </div>
-                    <div>
-                        <p class="text-xs text-slate-400">Modul System</p>
-                        <p class="text-sm font-bold text-white">Wishlist</p>
-                    </div>
+        <!-- Wishlist Item 2 -->
+        <div class="bg-white p-4 rounded-3xl border border-slate-100 shadow-sm flex items-center gap-4">
+            <div class="w-16 h-16 rounded-2xl bg-rose-50 text-rose-500 flex items-center justify-center flex-shrink-0">
+                <i data-lucide="smartphone" class="w-8 h-8"></i>
+            </div>
+            <div class="flex-1">
+                <div class="flex justify-between items-start">
+                    <h3 class="text-xs font-bold text-slate-800">Smartphone Baru</h3>
+                    <span class="px-2 py-0.5 bg-emerald-50 text-emerald-600 rounded-full text-[9px] font-bold">Tercapai</span>
                 </div>
-                <nav class="space-y-1">
-                    <a href="index.html" class="flex items-center space-x-3 text-slate-300 hover:bg-white/5 hover:text-white px-4 py-3 rounded-xl font-medium text-sm transition">
-                        <i class="fa-solid fa-chart-pie w-5"></i><span>Dashboard</span>
-                    </a>
-                    <a href="keuangan.html" class="flex items-center space-x-3 text-slate-300 hover:bg-white/5 hover:text-white px-4 py-3 rounded-xl font-medium text-sm transition">
-                        <i class="fa-solid fa-wallet w-5"></i><span>Catatan Keuangan</span>
-                    </a>
-                    <a href="tabungan.html" class="flex items-center space-x-3 text-slate-300 hover:bg-white/5 hover:text-white px-4 py-3 rounded-xl font-medium text-sm transition">
-                        <i class="fa-solid fa-piggy-bank w-5"></i><span>Target Tabungan</span>
-                    </a>
-                    <a href="wishlist.html" class="flex items-center space-x-3 bg-kai-blue text-white px-4 py-3 rounded-xl font-medium text-sm shadow">
-                        <i class="fa-solid fa-heart w-5"></i><span>Wishlist Impian</span>
-                    </a>
-                </nav>
-            </div>
-        </aside>
-
-        <!-- MAIN CONTENT -->
-        <main class="flex-1 p-4 md:p-6 space-y-4 max-w-2xl mx-auto">
-            <!-- Add Wishlist Form -->
-            <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 space-y-3">
-                <h3 class="text-sm font-bold text-kai-navy">Tambah Wishlist Baru</h3>
-                <div class="grid grid-cols-2 gap-2">
-                    <input type="text" id="itemName" placeholder="Nama Barang / Impian" class="col-span-2 bg-slate-50 border border-slate-300 rounded-lg p-2.5 text-xs text-slate-800 focus:outline-none focus:border-kai-blue">
-                    <input type="number" id="itemPrice" placeholder="Estimasi Harga (Rp)" class="bg-slate-50 border border-slate-300 rounded-lg p-2.5 text-xs text-slate-800 focus:outline-none focus:border-kai-blue">
-                    <select id="itemPriority" class="bg-slate-50 border border-slate-300 rounded-lg p-2.5 text-xs text-slate-800 focus:outline-none focus:border-kai-blue">
-                        <option value="Tinggi">Prioritas Tinggi</option>
-                        <option value="Sedang" selected>Prioritas Sedang</option>
-                        <option value="Rendah">Prioritas Rendah</option>
-                    </select>
+                <p class="text-xs font-bold text-sky-600 mt-1">Rp 7.500.000</p>
+                <div class="w-full bg-slate-100 h-1.5 rounded-full mt-2 overflow-hidden">
+                    <div class="bg-emerald-500 h-full rounded-full" style="width: 100%"></div>
                 </div>
-                <button onclick="addWish()" class="w-full bg-kai-orange hover:bg-kai-orangeHover text-white font-bold text-xs py-2.5 rounded-lg transition-all shadow">Simpan Wishlist</button>
             </div>
+        </div>
 
-            <!-- Wishlist Items -->
-            <div id="wishList" class="space-y-2">
-                <!-- Dynamic Items -->
-            </div>
-        </main>
     </div>
 
-    <!-- BOTTOM MOBILE NAVIGATION -->
-    <div class="fixed bottom-0 left-0 right-0 bg-kai-navy text-white border-t border-slate-700 py-2.5 z-40 md:hidden">
-        <div class="grid grid-cols-4 text-center">
-            <a href="index.html" class="text-slate-300 hover:text-white flex flex-col items-center gap-1 text-[11px]">
-                <i class="fa-solid fa-chart-pie text-base"></i> Home
+    <!-- Bottom Navigation Bar -->
+    <div class="fixed bottom-0 left-0 right-0 bg-white/80 backdrop-blur-lg border-t border-slate-200/80 px-6 py-2">
+        <div class="max-w-md mx-auto flex justify-around items-center">
+            <a href="index.html" class="flex flex-col items-center gap-1 text-slate-400 hover:text-sky-600 transition-colors">
+                <i data-lucide="wallet" class="w-5 h-5"></i>
+                <span class="text-[10px] font-medium">Keuangan</span>
             </a>
-            <a href="keuangan.html" class="text-slate-300 hover:text-white flex flex-col items-center gap-1 text-[11px]">
-                <i class="fa-solid fa-wallet text-base"></i> Keuangan
+            <a href="tabungan.html" class="flex flex-col items-center gap-1 text-slate-400 hover:text-sky-600 transition-colors">
+                <i data-lucide="piggy-bank" class="w-5 h-5"></i>
+                <span class="text-[10px] font-medium">Tabungan</span>
             </a>
-            <a href="tabungan.html" class="text-slate-300 hover:text-white flex flex-col items-center gap-1 text-[11px]">
-                <i class="fa-solid fa-piggy-bank text-base"></i> Tabungan
-            </a>
-            <a href="wishlist.html" class="text-kai-orange flex flex-col items-center gap-1 text-[11px] font-bold">
-                <i class="fa-solid fa-heart text-base"></i> Wishlist
+            <a href="wishlist.html" class="flex flex-col items-center gap-1 text-sky-600">
+                <i data-lucide="heart" class="w-5 h-5"></i>
+                <span class="text-[10px] font-bold">Wishlist</span>
             </a>
         </div>
     </div>
 
     <script>
-        let wishs = JSON.parse(localStorage.getItem('app_wishs')) || [];
-
-        function formatRp(num) {
-            return 'Rp ' + Number(num).toLocaleString('id-ID');
-        }
-
-        function render() {
-            const list = document.getElementById('wishList');
-            list.innerHTML = '';
-
-            if (wishs.length === 0) {
-                list.innerHTML = `<div class="bg-white p-8 rounded-xl border border-slate-200 text-center text-xs text-slate-400">Belum ada daftar wishlist.</div>`;
-            }
-
-            wishs.forEach((item, index) => {
-                const card = document.createElement('div');
-                card.className = `flex justify-between items-center p-3 rounded-xl border ${item.bought ? 'bg-slate-100 border-slate-200 opacity-60' : 'bg-white border-slate-200 shadow-sm'}`;
-                
-                let badgeColor = 'bg-slate-100 text-slate-600';
-                if(item.priority === 'Tinggi') badgeColor = 'bg-orange-100 text-kai-orange border border-orange-200';
-                if(item.priority === 'Sedang') badgeColor = 'bg-blue-100 text-kai-blue border border-blue-200';
-
-                card.innerHTML = `
-                    <div class="flex items-center gap-3">
-                        <input type="checkbox" ${item.bought ? 'checked' : ''} onchange="toggleBought(${index})" class="w-4 h-4 rounded text-kai-orange accent-kai-orange cursor-pointer">
-                        <div>
-                            <p class="font-bold text-xs text-slate-800 ${item.bought ? 'line-through text-slate-400' : ''}">${item.name}</p>
-                            <div class="flex items-center gap-2 mt-0.5">
-                                <span class="text-xs font-semibold text-slate-500">${formatRp(item.price)}</span>
-                                <span class="text-[9px] px-2 py-0.5 rounded-full font-bold ${badgeColor}">${item.priority}</span>
-                            </div>
-                        </div>
-                    </div>
-                    <button onclick="deleteWish(${index})" class="text-slate-400 hover:text-rose-500 text-xs">
-                        <i class="fa-solid fa-trash"></i>
-                    </button>
-                `;
-                list.appendChild(card);
-            });
-
-            localStorage.setItem('app_wishs', JSON.stringify(wishs));
-        }
-
-        function addWish() {
-            const name = document.getElementById('itemName').value.trim();
-            const price = parseFloat(document.getElementById('itemPrice').value);
-            const priority = document.getElementById('itemPriority').value;
-
-            if (!name || isNaN(price) || price <= 0) {
-                alert('Lengkapi nama dan estimasi harga.');
-                return;
-            }
-
-            wishs.push({ name, price, priority, bought: false });
-            document.getElementById('itemName').value = '';
-            document.getElementById('itemPrice').value = '';
-            render();
-        }
-
-        function toggleBought(index) {
-            wishs[index].bought = !wishs[index].bought;
-            render();
-        }
-
-        function deleteWish(index) {
-            if (confirm('Hapus item wishlist ini?')) {
-                wishs.splice(index, 1);
-                render();
-            }
-        }
-
-        render();
+        lucide.createIcons();
     </script>
 </body>
 </html>
+

@@ -3,362 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - KAI Financial Tracker</title>
+    <title>MyFinance - Dashboard</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        kai: {
-                            navy: '#002B49',
-                            blue: '#0D47A1',
-                            lightBlue: '#1976D2',
-                            orange: '#ED6B23',
-                            orangeHover: '#D85A12',
-                            bg: '#F4F6F9'
-                        }
-                    }
-                }
-            }
-        }
-    </script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
 </head>
-<body class="bg-kai-bg font-sans min-h-screen text-slate-800 pb-20 md:pb-0">
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen pb-24">
 
-    <!-- TOP HEADER -->
-    <header class="bg-kai-navy text-white sticky top-0 z-40 shadow-md">
-        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
-            <div class="flex items-center space-x-3">
-                <button id="sidebarToggle" class="md:hidden text-white text-xl focus:outline-none">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
-                <div class="flex items-center space-x-2">
-                    <div class="bg-kai-orange text-white font-extrabold px-2.5 py-1 rounded text-lg tracking-wider">KAI</div>
-                    <span class="font-bold text-sm md:text-base tracking-wide border-l border-slate-600 pl-2">Finance Access</span>
+    <!-- Header & Card Area with Gradient -->
+    <div class="bg-gradient-to-b from-blue-600 via-sky-400 to-slate-50 pt-8 pb-12 px-5 rounded-b-[2.5rem] shadow-sm">
+        <!-- Top Bar -->
+        <div class="flex justify-between items-center mb-6 text-white">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center font-bold text-lg border border-white/30">
+                    M
+                </div>
+                <div>
+                    <p class="text-xs text-blue-100 font-medium">Selamat Datang,</p>
+                    <h1 class="font-bold text-base tracking-wide">Pengguna Cloud</h1>
                 </div>
             </div>
-            <div class="flex items-center space-x-3">
-                <button onclick="openPinModal()" class="bg-kai-orange hover:bg-kai-orangeHover text-white text-xs font-semibold px-3 py-1.5 rounded-lg flex items-center gap-1.5 shadow transition">
-                    <i class="fa-solid fa-lock"></i> <span class="hidden sm:inline">Ubah PIN</span>
-                </button>
-                <button onclick="logout()" class="bg-white/10 hover:bg-white/20 text-white text-xs px-3 py-1.5 rounded-lg transition">
-                    <i class="fa-solid fa-right-from-bracket"></i> Lock
-                </button>
-            </div>
+            <button class="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/30">
+                <i data-lucide="bell" class="w-5 h-5 text-white"></i>
+            </button>
         </div>
-    </header>
 
-    <div class="flex max-w-7xl mx-auto">
-        <!-- SIDEBAR (Desktop & Mobile Overlay) -->
-        <aside id="sidebar" class="fixed inset-y-0 left-0 z-50 w-64 bg-kai-navy text-white transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out md:static md:z-auto flex flex-col justify-between shadow-xl">
-            <div class="p-4 space-y-6">
-                <div class="flex justify-between items-center md:hidden pb-2 border-b border-slate-700">
-                    <span class="font-bold text-kai-orange">Menu Utama</span>
-                    <button id="sidebarClose" class="text-white text-lg"><i class="fa-solid fa-xmark"></i></button>
-                </div>
+        <!-- M-Banking Main Balance Card -->
+        <div class="bg-white/90 backdrop-blur-xl rounded-3xl p-6 shadow-xl border border-white/60">
+            <div class="flex justify-between items-center mb-2">
+                <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Total Salo Utama</span>
+                <span class="px-2.5 py-1 bg-blue-50 text-blue-600 rounded-full text-[10px] font-bold">Aktif</span>
+            </div>
+            <h2 class="text-3xl font-extrabold text-slate-800 mb-6 tracking-tight">Rp 12.850.000</h2>
 
-                <!-- User Info -->
-                <div class="bg-slate-800/60 p-3.5 rounded-xl border border-slate-700/50 flex items-center space-x-3">
-                    <div class="w-10 h-10 rounded-full bg-kai-orange flex items-center justify-center font-bold text-white shadow">
-                        <i class="fa-solid fa-user-gear"></i>
+            <div class="grid grid-cols-2 gap-3 pt-4 border-t border-slate-100">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center">
+                        <i data-lucide="arrow-down-left" class="w-4 h-4"></i>
                     </div>
                     <div>
-                        <p class="text-xs text-slate-400">Pengguna KAI</p>
-                        <p class="text-sm font-bold text-white">Akun Keuangan</p>
+                        <p class="text-[11px] text-slate-400 font-medium">Pemasukan</p>
+                        <p class="text-xs font-bold text-emerald-600">+Rp 4.500.000</p>
                     </div>
                 </div>
-
-                <!-- Nav Menu -->
-                <nav class="space-y-1">
-                    <a href="index.html" class="flex items-center space-x-3 bg-kai-blue text-white px-4 py-3 rounded-xl font-medium text-sm shadow">
-                        <i class="fa-solid fa-chart-pie w-5"></i>
-                        <span>Dashboard</span>
-                    </a>
-                    <a href="keuangan.html" class="flex items-center space-x-3 text-slate-300 hover:bg-white/5 hover:text-white px-4 py-3 rounded-xl font-medium text-sm transition">
-                        <i class="fa-solid fa-wallet w-5"></i>
-                        <span>Catatan Keuangan</span>
-                    </a>
-                    <a href="tabungan.html" class="flex items-center space-x-3 text-slate-300 hover:bg-white/5 hover:text-white px-4 py-3 rounded-xl font-medium text-sm transition">
-                        <i class="fa-solid fa-piggy-bank w-5"></i>
-                        <span>Target Tabungan</span>
-                    </a>
-                    <a href="wishlist.html" class="flex items-center space-x-3 text-slate-300 hover:bg-white/5 hover:text-white px-4 py-3 rounded-xl font-medium text-sm transition">
-                        <i class="fa-solid fa-heart w-5"></i>
-                        <span>Wishlist Impian</span>
-                    </a>
-                </nav>
-            </div>
-
-            <div class="p-4 border-t border-slate-700/60 text-xs text-slate-400 text-center">
-                &copy; KAI Financial System
-            </div>
-        </aside>
-
-        <!-- MAIN DASHBOARD CONTENT -->
-        <main class="flex-1 p-4 md:p-6 space-y-6">
-            
-            <!-- Banner KAI Welcome -->
-            <div class="bg-gradient-to-r from-kai-navy to-kai-blue text-white p-6 rounded-2xl shadow-lg relative overflow-hidden">
-                <div class="relative z-10 space-y-2">
-                    <span class="bg-kai-orange text-white text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">Selamat Datang</span>
-                    <h2 class="text-xl md:text-2xl font-bold">Ringkasan Keuangan Anda</h2>
-                    <p class="text-xs md:text-sm text-slate-200">Kelola tiket masa depan keuangan Anda secara tertata dan aman.</p>
-                </div>
-                <i class="fa-solid fa-train text-8xl text-white/5 absolute -right-4 -bottom-4 pointer-events-none"></i>
-            </div>
-
-            <!-- Stats Overview Cards -->
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                <div class="bg-white p-4 rounded-xl shadow-sm border-l-4 border-kai-blue flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-rose-100 text-rose-500 flex items-center justify-center">
+                        <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                    </div>
                     <div>
-                        <p class="text-xs text-slate-500 font-medium">Total Saldo Bersih</p>
-                        <h3 id="dashBalance" class="text-xl font-bold text-kai-navy mt-1">Rp 0</h3>
-                    </div>
-                    <div class="w-10 h-10 rounded-full bg-blue-50 text-kai-blue flex items-center justify-center">
-                        <i class="fa-solid fa-scale-balanced"></i>
-                    </div>
-                </div>
-
-                <div class="bg-white p-4 rounded-xl shadow-sm border-l-4 border-emerald-500 flex items-center justify-between">
-                    <div>
-                        <p class="text-xs text-slate-500 font-medium">Total Pemasukan</p>
-                        <h3 id="dashIncome" class="text-xl font-bold text-emerald-600 mt-1">Rp 0</h3>
-                    </div>
-                    <div class="w-10 h-10 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center">
-                        <i class="fa-solid fa-arrow-down-long"></i>
-                    </div>
-                </div>
-
-                <div class="bg-white p-4 rounded-xl shadow-sm border-l-4 border-kai-orange flex items-center justify-between">
-                    <div>
-                        <p class="text-xs text-slate-500 font-medium">Total Pengeluaran</p>
-                        <h3 id="dashExpense" class="text-xl font-bold text-kai-orange mt-1">Rp 0</h3>
-                    </div>
-                    <div class="w-10 h-10 rounded-full bg-orange-50 text-kai-orange flex items-center justify-center">
-                        <i class="fa-solid fa-arrow-up-long"></i>
+                        <p class="text-[11px] text-slate-400 font-medium">Pengeluaran</p>
+                        <p class="text-xs font-bold text-rose-500">-Rp 1.250.000</p>
                     </div>
                 </div>
             </div>
-
-            <!-- Menu Quick Access -->
-            <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200">
-                <h3 class="text-sm font-bold text-kai-navy mb-4 flex items-center gap-2">
-                    <i class="fa-solid fa-compass text-kai-orange"></i> Akses Cepat
-                </h3>
-                <div class="grid grid-cols-3 gap-3">
-                    <a href="keuangan.html" class="flex flex-col items-center p-3 rounded-xl bg-slate-50 hover:bg-blue-50 border border-slate-200 hover:border-kai-blue transition text-center group">
-                        <div class="w-10 h-10 rounded-xl bg-kai-blue text-white flex items-center justify-center mb-2 shadow group-hover:scale-105 transition">
-                            <i class="fa-solid fa-wallet"></i>
-                        </div>
-                        <span class="text-xs font-semibold text-slate-700">Keuangan</span>
-                    </a>
-
-                    <a href="tabungan.html" class="flex flex-col items-center p-3 rounded-xl bg-slate-50 hover:bg-emerald-50 border border-slate-200 hover:border-emerald-500 transition text-center group">
-                        <div class="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center mb-2 shadow group-hover:scale-105 transition">
-                            <i class="fa-solid fa-piggy-bank"></i>
-                        </div>
-                        <span class="text-xs font-semibold text-slate-700">Tabungan</span>
-                    </a>
-
-                    <a href="wishlist.html" class="flex flex-col items-center p-3 rounded-xl bg-slate-50 hover:bg-orange-50 border border-slate-200 hover:border-kai-orange transition text-center group">
-                        <div class="w-10 h-10 rounded-xl bg-kai-orange text-white flex items-center justify-center mb-2 shadow group-hover:scale-105 transition">
-                            <i class="fa-solid fa-heart"></i>
-                        </div>
-                        <span class="text-xs font-semibold text-slate-700">Wishlist</span>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Latest Activity -->
-            <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200">
-                <div class="flex justify-between items-center mb-3">
-                    <h3 class="text-sm font-bold text-kai-navy">Transaksi Terakhir</h3>
-                    <a href="keuangan.html" class="text-xs font-semibold text-kai-blue hover:underline">Lihat Semua</a>
-                </div>
-                <div id="latestTxList" class="space-y-2">
-                    <!-- Dynamic Items -->
-                </div>
-            </div>
-
-        </main>
-    </div>
-
-    <!-- BOTTOM MOBILE NAVIGATION -->
-    <div class="fixed bottom-0 left-0 right-0 bg-kai-navy text-white border-t border-slate-700 py-2.5 z-40 md:hidden">
-        <div class="grid grid-cols-4 text-center">
-            <a href="index.html" class="text-kai-orange flex flex-col items-center gap-1 text-[11px] font-bold">
-                <i class="fa-solid fa-chart-pie text-base"></i> Home
-            </a>
-            <a href="keuangan.html" class="text-slate-300 hover:text-white flex flex-col items-center gap-1 text-[11px]">
-                <i class="fa-solid fa-wallet text-base"></i> Keuangan
-            </a>
-            <a href="tabungan.html" class="text-slate-300 hover:text-white flex flex-col items-center gap-1 text-[11px]">
-                <i class="fa-solid fa-piggy-bank text-base"></i> Tabungan
-            </a>
-            <a href="wishlist.html" class="text-slate-300 hover:text-white flex flex-col items-center gap-1 text-[11px]">
-                <i class="fa-solid fa-heart text-base"></i> Wishlist
-            </a>
         </div>
     </div>
 
-    <!-- LOGIN / SECURITY PIN MODAL -->
-    <div id="pinModal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 hidden">
-        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-sm p-6 text-center border-t-8 border-kai-orange">
-            <div class="w-14 h-14 bg-kai-navy text-kai-orange rounded-full flex items-center justify-center mx-auto mb-3 shadow">
-                <i class="fa-solid fa-shield-halved text-2xl"></i>
-            </div>
-            <h3 class="text-lg font-bold text-kai-navy">Akses PIN Keamanan</h3>
-            <p class="text-xs text-slate-500 mt-1 mb-4">Masukkan PIN 4 digit untuk verifikasi/pengaturan</p>
+    <!-- Quick Actions -->
+    <div class="px-5 -mt-6">
+        <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-100 grid grid-cols-4 gap-2 text-center">
+            <button class="flex flex-col items-center gap-1.5 p-2 rounded-xl hover:bg-slate-50">
+                <div class="w-11 h-11 rounded-2xl bg-sky-50 text-sky-600 flex items-center justify-center">
+                    <i data-lucide="plus" class="w-5 h-5"></i>
+                </div>
+                <span class="text-[11px] font-semibold text-slate-600">Catat</span>
+            </button>
+            <button class="flex flex-col items-center gap-1.5 p-2 rounded-xl hover:bg-slate-50">
+                <div class="w-11 h-11 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center">
+                    <i data-lucide="arrow-right-left" class="w-5 h-5"></i>
+                </div>
+                <span class="text-[11px] font-semibold text-slate-600">Transfer</span>
+            </button>
+            <button class="flex flex-col items-center gap-1.5 p-2 rounded-xl hover:bg-slate-50">
+                <div class="w-11 h-11 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center">
+                    <i data-lucide="pie-chart" class="w-5 h-5"></i>
+                </div>
+                <span class="text-[11px] font-semibold text-slate-600">Laporan</span>
+            </button>
+            <button class="flex flex-col items-center gap-1.5 p-2 rounded-xl hover:bg-slate-50">
+                <div class="w-11 h-11 rounded-2xl bg-slate-100 text-slate-600 flex items-center justify-center">
+                    <i data-lucide="grid" class="w-5 h-5"></i>
+                </div>
+                <span class="text-[11px] font-semibold text-slate-600">Lainnya</span>
+            </button>
+        </div>
+    </div>
 
-            <div class="flex justify-center space-x-3 mb-4">
-                <div class="w-3.5 h-3.5 rounded-full border-2 border-kai-navy modal-pin-dot"></div>
-                <div class="w-3.5 h-3.5 rounded-full border-2 border-kai-navy modal-pin-dot"></div>
-                <div class="w-3.5 h-3.5 rounded-full border-2 border-kai-navy modal-pin-dot"></div>
-                <div class="w-3.5 h-3.5 rounded-full border-2 border-kai-navy modal-pin-dot"></div>
+    <!-- Recent Transactions -->
+    <div class="px-5 mt-6">
+        <div class="flex justify-between items-center mb-4">
+            <h3 class="font-bold text-slate-800 text-sm">Transaksi Terakhir</h3>
+            <a href="#" class="text-xs font-semibold text-sky-600 hover:text-sky-700">Lihat Semua</a>
+        </div>
+
+        <div class="space-y-3">
+            <!-- Item 1 -->
+            <div class="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm flex justify-between items-center">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-2xl bg-amber-50 text-amber-500 flex items-center justify-center">
+                        <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs font-bold text-slate-800">Belanja Bulanan</p>
+                        <p class="text-[10px] text-slate-400 font-medium">Hari ini, 14:20 • Supermarket</p>
+                    </div>
+                </div>
+                <span class="text-xs font-bold text-rose-500">-Rp 350.000</span>
             </div>
 
-            <p id="pinMsg" class="text-xs text-rose-500 font-semibold mb-3 min-h-[1rem]"></p>
-
-            <div class="grid grid-cols-3 gap-2 max-w-[200px] mx-auto mb-4">
-                <button onclick="pressModalNum('1')" class="h-10 rounded-lg bg-slate-100 hover:bg-slate-200 font-bold text-kai-navy">1</button>
-                <button onclick="pressModalNum('2')" class="h-10 rounded-lg bg-slate-100 hover:bg-slate-200 font-bold text-kai-navy">2</button>
-                <button onclick="pressModalNum('3')" class="h-10 rounded-lg bg-slate-100 hover:bg-slate-200 font-bold text-kai-navy">3</button>
-                <button onclick="pressModalNum('4')" class="h-10 rounded-lg bg-slate-100 hover:bg-slate-200 font-bold text-kai-navy">4</button>
-                <button onclick="pressModalNum('5')" class="h-10 rounded-lg bg-slate-100 hover:bg-slate-200 font-bold text-kai-navy">5</button>
-                <button onclick="pressModalNum('6')" class="h-10 rounded-lg bg-slate-100 hover:bg-slate-200 font-bold text-kai-navy">6</button>
-                <button onclick="pressModalNum('7')" class="h-10 rounded-lg bg-slate-100 hover:bg-slate-200 font-bold text-kai-navy">7</button>
-                <button onclick="pressModalNum('8')" class="h-10 rounded-lg bg-slate-100 hover:bg-slate-200 font-bold text-kai-navy">8</button>
-                <button onclick="pressModalNum('9')" class="h-10 rounded-lg bg-slate-100 hover:bg-slate-200 font-bold text-kai-navy">9</button>
-                <button onclick="clearModalPin()" class="h-10 rounded-lg bg-rose-100 text-rose-600 font-bold text-xs">C</button>
-                <button onclick="pressModalNum('0')" class="h-10 rounded-lg bg-slate-100 hover:bg-slate-200 font-bold text-kai-navy">0</button>
-                <button onclick="closePinModal()" class="h-10 rounded-lg bg-slate-200 text-slate-600 font-bold text-xs">Batal</button>
+            <!-- Item 2 -->
+            <div class="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm flex justify-between items-center">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-2xl bg-emerald-50 text-emerald-500 flex items-center justify-center">
+                        <i data-lucide="briefcase" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs font-bold text-slate-800">Gaji Project Freelance</p>
+                        <p class="text-[10px] text-slate-400 font-medium">Kemarin, 09:00 • Transfer</p>
+                    </div>
+                </div>
+                <span class="text-xs font-bold text-emerald-600">+Rp 2.500.000</span>
             </div>
+
+            <!-- Item 3 -->
+            <div class="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm flex justify-between items-center">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-2xl bg-purple-50 text-purple-500 flex items-center justify-center">
+                        <i data-lucide="coffee" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs font-bold text-slate-800">Kopi & Nongkrong</p>
+                        <p class="text-[10px] text-slate-400 font-medium">11 Oct 2026 • QRIS</p>
+                    </div>
+                </div>
+                <span class="text-xs font-bold text-rose-500">-Rp 45.000</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Navigation Bar (M-Banking Style) -->
+    <div class="fixed bottom-0 left-0 right-0 bg-white/80 backdrop-blur-lg border-t border-slate-200/80 px-6 py-2">
+        <div class="max-w-md mx-auto flex justify-around items-center">
+            <a href="index.html" class="flex flex-col items-center gap-1 text-sky-600">
+                <i data-lucide="wallet" class="w-5 h-5"></i>
+                <span class="text-[10px] font-bold">Keuangan</span>
+            </a>
+            <a href="tabungan.html" class="flex flex-col items-center gap-1 text-slate-400 hover:text-sky-600 transition-colors">
+                <i data-lucide="piggy-bank" class="w-5 h-5"></i>
+                <span class="text-[10px] font-medium">Tabungan</span>
+            </a>
+            <a href="wishlist.html" class="flex flex-col items-center gap-1 text-slate-400 hover:text-sky-600 transition-colors">
+                <i data-lucide="heart" class="w-5 h-5"></i>
+                <span class="text-[10px] font-medium">Wishlist</span>
+            </a>
         </div>
     </div>
 
     <script>
-        // Default PIN logic
-        if (!localStorage.getItem('kai_user_pin')) {
-            localStorage.setItem('kai_user_pin', '1234');
-        }
-
-        // Sidebar Toggle Mobile
-        const sidebar = document.getElementById('sidebar');
-        const sidebarToggle = document.getElementById('sidebarToggle');
-        const sidebarClose = document.getElementById('sidebarClose');
-
-        sidebarToggle.addEventListener('click', () => sidebar.classList.remove('-translate-x-full'));
-        sidebarClose.addEventListener('click', () => sidebar.classList.add('-translate-x-full'));
-
-        // Load Financial Stats
-        function formatRp(num) {
-            return 'Rp ' + Number(num).toLocaleString('id-ID');
-        }
-
-        function loadDashboard() {
-            const transactions = JSON.parse(localStorage.getItem('app_tx')) || [];
-            let income = 0;
-            let expense = 0;
-
-            const latestList = document.getElementById('latestTxList');
-            latestList.innerHTML = '';
-
-            if (transactions.length === 0) {
-                latestList.innerHTML = `<p class="text-xs text-slate-400 text-center py-4">Belum ada transaksi recorded.</p>`;
-            }
-
-            transactions.forEach((tx, idx) => {
-                if (tx.type === 'in') income += tx.amount;
-                if (tx.type === 'out') expense += tx.amount;
-
-                if (idx < 3) {
-                    const el = document.createElement('div');
-                    el.className = 'flex justify-between items-center bg-slate-50 p-2.5 rounded-lg border border-slate-200 text-xs';
-                    el.innerHTML = `
-                        <div class="flex items-center space-x-2">
-                            <span class="w-6 h-6 rounded-full flex items-center justify-center ${tx.type === 'in' ? 'bg-emerald-100 text-emerald-600' : 'bg-orange-100 text-kai-orange'}">
-                                <i class="fa-solid ${tx.type === 'in' ? 'fa-arrow-down' : 'fa-arrow-up'} text-[10px]"></i>
-                            </span>
-                            <div>
-                                <p class="font-bold text-slate-700">${tx.desc}</p>
-                                <p class="text-[10px] text-slate-400">${tx.date}</p>
-                            </div>
-                        </div>
-                        <span class="font-bold ${tx.type === 'in' ? 'text-emerald-600' : 'text-kai-orange'}">
-                            ${tx.type === 'in' ? '+' : '-'} ${formatRp(tx.amount)}
-                        </span>
-                    `;
-                    latestList.appendChild(el);
-                }
-            });
-
-            document.getElementById('dashIncome').innerText = formatRp(income);
-            document.getElementById('dashExpense').innerText = formatRp(expense);
-            document.getElementById('dashBalance').innerText = formatRp(income - expense);
-        }
-
-        // Modal PIN Logic
-        let modalPin = '';
-        const dots = document.querySelectorAll('.modal-pin-dot');
-
-        function openPinModal() {
-            modalPin = '';
-            updateDots();
-            document.getElementById('pinMsg').innerText = '';
-            document.getElementById('pinModal').classList.remove('hidden');
-        }
-
-        function closePinModal() {
-            document.getElementById('pinModal').classList.add('hidden');
-        }
-
-        function updateDots() {
-            dots.forEach((dot, idx) => {
-                if (idx < modalPin.length) {
-                    dot.classList.add('bg-kai-orange', 'border-kai-orange');
-                } else {
-                    dot.classList.remove('bg-kai-orange', 'border-kai-orange');
-                }
-            });
-        }
-
-        function pressModalNum(num) {
-            if (modalPin.length < 4) {
-                modalPin += num;
-                updateDots();
-                if (modalPin.length === 4) {
-                    setTimeout(verifyOrChangePin, 150);
-                }
-            }
-        }
-
-        function clearModalPin() {
-            modalPin = '';
-            updateDots();
-        }
-
-        function verifyOrChangePin() {
-            const currentPin = localStorage.getItem('kai_user_pin');
-            if (modalPin === currentPin) {
-                const newPin = prompt("PIN Benar! Masukkan PIN Baru 4 Digit (atau Batal):");
-                if (newPin && newPin.length === 4 && !isNaN(newPin)) {
-                    localStorage.setItem('kai_user_pin', newPin);
-                    alert("PIN Berhasil Diperbarui!");
-                }
-                closePinModal();
-            } else {
-                document.getElementById('pinMsg').innerText = 'PIN Salah!';
-                clearModalPin();
-            }
-        }
-
-        function logout() {
-            alert('Aplikasi terkunci. Masukkan PIN saat dibutuhkan.');
-        }
-
-        loadDashboard();
+        lucide.createIcons();
     </script>
 </body>
 </html>

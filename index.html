@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>MyFinance - AI Strict Receipt Scanner</title>
+    <title>MyFinance - Secure Financial Workspace</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -13,34 +13,33 @@
                 extend: {
                     colors: {
                         brand: {
-                            50: '#f0f7ff',
-                            100: '#e0effe',
-                            500: '#0284c7',
-                            600: '#0369a1',
-                            700: '#095186',
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
                         }
                     },
                     keyframes: {
                         fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
-                        slideUp: { '0%': { transform: 'translateY(20px)', opacity: '0' }, '100%': { transform: 'translateY(0)', opacity: '1' } },
-                        popIn: { '0%': { transform: 'scale(0.8)', opacity: '0' }, '80%': { transform: 'scale(1.05)', opacity: '1' }, '100%': { transform: 'scale(1)', opacity: '1' } },
+                        slideUp: { '0%': { transform: 'translateY(15px)', opacity: '0' }, '100%': { transform: 'translateY(0)', opacity: '1' } },
+                        popIn: { '0%': { transform: 'scale(0.85)', opacity: '0' }, '80%': { transform: 'scale(1.03)', opacity: '1' }, '100%': { transform: 'scale(1)', opacity: '1' } },
                         shake: {
                             '0%, 100%': { transform: 'translateX(0)' },
                             '20%, 60%': { transform: 'translateX(-8px)' },
                             '40%, 80%': { transform: 'translateX(8px)' }
                         },
-                        scanLaser: {
-                            '0%': { top: '0%' },
-                            '50%': { top: '95%' },
-                            '100%': { top: '0%' }
+                        pulseGlow: {
+                            '0%, 100%': { opacity: '0.4' },
+                            '50%': { opacity: '0.8' }
                         }
                     },
                     animation: {
-                        fadeIn: 'fadeIn 0.25s ease-out forwards',
-                        slideUp: 'slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards',
-                        popIn: 'popIn 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards',
+                        fadeIn: 'fadeIn 0.3s ease-out forwards',
+                        slideUp: 'slideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                        popIn: 'popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards',
                         shake: 'shake 0.4s ease-in-out',
-                        scanLaser: 'scanLaser 1.8s ease-in-out infinite'
+                        pulseGlow: 'pulseGlow 4s ease-in-out infinite'
                     }
                 }
             }
@@ -100,46 +99,60 @@
 </head>
 <body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 antialiased min-h-screen pb-36 transition-colors duration-200 selection:bg-sky-500 selection:text-white">
 
-    <!-- LOCK SCREEN / LOGIN MODERN GLASSMORPHISM (MURNI PIN) -->
-    <div id="lockScreen" class="fixed inset-0 z-50 bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 flex flex-col items-center justify-between p-6 text-white select-none animate-fadeIn overflow-y-auto">
-        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-sky-500/20 rounded-full blur-3xl pointer-events-none"></div>
+    <!-- PROFESSIONAL ENTERPRISE LOCK SCREEN / LOGIN PAGE -->
+    <div id="lockScreen" class="fixed inset-0 z-50 bg-slate-950 flex flex-col items-center justify-between p-6 text-white select-none animate-fadeIn overflow-y-auto">
+        <!-- Ambient Glowing Orbs -->
+        <div class="absolute top-1/6 left-1/2 -translate-x-1/2 w-96 h-96 bg-sky-600/15 rounded-full blur-[120px] pointer-events-none animate-pulseGlow"></div>
+        <div class="absolute bottom-1/4 right-10 w-72 h-72 bg-blue-600/10 rounded-full blur-[100px] pointer-events-none"></div>
 
-        <div class="mt-12 sm:mt-16 text-center animate-slideUp relative z-10">
-            <div class="w-20 h-20 mx-auto bg-gradient-to-tr from-sky-400 to-blue-600 rounded-3xl p-0.5 shadow-2xl shadow-sky-500/30 mb-4 transform hover:scale-105 transition">
-                <div class="w-full h-full bg-slate-900/60 backdrop-blur-md rounded-[22px] flex items-center justify-center border border-white/20">
-                    <i data-lucide="shield-check" class="w-10 h-10 text-sky-400"></i>
+        <!-- Top Header Identity -->
+        <div class="mt-10 sm:mt-12 text-center animate-slideUp relative z-10 space-y-2">
+            <div class="w-16 h-16 sm:w-20 sm:h-20 mx-auto bg-gradient-to-tr from-sky-500 via-blue-600 to-indigo-600 rounded-[24px] p-0.5 shadow-2xl shadow-sky-500/20 transform hover:scale-105 transition duration-300">
+                <div class="w-full h-full bg-slate-900/80 backdrop-blur-xl rounded-[22px] flex items-center justify-center border border-white/15">
+                    <i data-lucide="lock-keyhole" class="w-8 h-8 sm:w-9 sm:h-9 text-sky-400"></i>
                 </div>
             </div>
-            <h1 class="text-3xl font-extrabold tracking-tight bg-gradient-to-r from-white via-sky-100 to-sky-300 bg-clip-text text-transparent">MyFinance</h1>
-        </div>
-
-        <div class="my-auto flex flex-col items-center relative z-10 w-full max-w-xs">
-            <p class="text-xs text-slate-300 mb-4 font-semibold tracking-wide uppercase">Masukkan PIN Kamu</p>
-            <div id="pinDots" class="flex gap-3 mb-2 bg-white/5 p-3 rounded-2xl border border-white/10 backdrop-blur-md shadow-inner transition-all">
-                <div class="pin-dot w-6 h-3 rounded-full border border-white/30 transition-all duration-300"></div>
-                <div class="pin-dot w-6 h-3 rounded-full border border-white/30 transition-all duration-300"></div>
-                <div class="pin-dot w-6 h-3 rounded-full border border-white/30 transition-all duration-300"></div>
-                <div class="pin-dot w-6 h-3 rounded-full border border-white/30 transition-all duration-300"></div>
+            <div>
+                <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-white via-slate-100 to-sky-200 bg-clip-text text-transparent">MyFinance</h1>
+                <p class="text-[11px] sm:text-xs text-slate-400 font-medium tracking-wide mt-0.5">Secure Enterprise Financial Vault</p>
             </div>
         </div>
 
-        <div class="w-full max-w-xs mb-8 sm:mb-12 relative z-10">
+        <!-- PIN Dots Indicator Area -->
+        <div class="my-auto flex flex-col items-center relative z-10 w-full max-w-xs py-6">
+            <div class="flex items-center gap-2 px-3 py-1.5 bg-white/[0.03] border border-white/10 rounded-full mb-6 backdrop-blur-md shadow-sm">
+                <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-400"></i>
+                <span class="text-[10px] font-bold text-slate-300 tracking-wider uppercase">Autentikasi PIN 4-Digit</span>
+            </div>
+
+            <div id="pinDots" class="flex gap-4 mb-2 bg-slate-900/60 p-4 rounded-3xl border border-white/10 backdrop-blur-xl shadow-2xl transition-all">
+                <div class="pin-dot w-4 h-4 rounded-full border-2 border-white/30 bg-white/5 transition-all duration-300"></div>
+                <div class="pin-dot w-4 h-4 rounded-full border-2 border-white/30 bg-white/5 transition-all duration-300"></div>
+                <div class="pin-dot w-4 h-4 rounded-full border-2 border-white/30 bg-white/5 transition-all duration-300"></div>
+                <div class="pin-dot w-4 h-4 rounded-full border-2 border-white/30 bg-white/5 transition-all duration-300"></div>
+            </div>
+        </div>
+
+        <!-- Glassmorphism Keypad -->
+        <div class="w-full max-w-xs mb-6 sm:mb-10 relative z-10">
             <div class="grid grid-cols-3 gap-3 text-center">
-                <button onclick="pressPin('1')" class="h-14 rounded-2xl bg-white/10 hover:bg-white/20 active:scale-90 backdrop-blur-md border border-white/15 text-xl font-extrabold flex items-center justify-center transition shadow-lg">1</button>
-                <button onclick="pressPin('2')" class="h-14 rounded-2xl bg-white/10 hover:bg-white/20 active:scale-90 backdrop-blur-md border border-white/15 text-xl font-extrabold flex items-center justify-center transition shadow-lg">2</button>
-                <button onclick="pressPin('3')" class="h-14 rounded-2xl bg-white/10 hover:bg-white/20 active:scale-90 backdrop-blur-md border border-white/15 text-xl font-extrabold flex items-center justify-center transition shadow-lg">3</button>
-                <button onclick="pressPin('4')" class="h-14 rounded-2xl bg-white/10 hover:bg-white/20 active:scale-90 backdrop-blur-md border border-white/15 text-xl font-extrabold flex items-center justify-center transition shadow-lg">4</button>
-                <button onclick="pressPin('5')" class="h-14 rounded-2xl bg-white/10 hover:bg-white/20 active:scale-90 backdrop-blur-md border border-white/15 text-xl font-extrabold flex items-center justify-center transition shadow-lg">5</button>
-                <button onclick="pressPin('6')" class="h-14 rounded-2xl bg-white/10 hover:bg-white/20 active:scale-90 backdrop-blur-md border border-white/15 text-xl font-extrabold flex items-center justify-center transition shadow-lg">6</button>
-                <button onclick="pressPin('7')" class="h-14 rounded-2xl bg-white/10 hover:bg-white/20 active:scale-90 backdrop-blur-md border border-white/15 text-xl font-extrabold flex items-center justify-center transition shadow-lg">7</button>
-                <button onclick="pressPin('8')" class="h-14 rounded-2xl bg-white/10 hover:bg-white/20 active:scale-90 backdrop-blur-md border border-white/15 text-xl font-extrabold flex items-center justify-center transition shadow-lg">8</button>
-                <button onclick="pressPin('9')" class="h-14 rounded-2xl bg-white/10 hover:bg-white/20 active:scale-90 backdrop-blur-md border border-white/15 text-xl font-extrabold flex items-center justify-center transition shadow-lg">9</button>
-                <button onclick="clearPin()" class="h-14 rounded-2xl bg-rose-500/20 hover:bg-rose-500/30 active:scale-90 backdrop-blur-md border border-rose-400/30 text-[10px] font-bold text-rose-200 flex items-center justify-center transition">CLEAR</button>
-                <button onclick="pressPin('0')" class="h-14 rounded-2xl bg-white/10 hover:bg-white/20 active:scale-90 backdrop-blur-md border border-white/15 text-xl font-extrabold flex items-center justify-center transition shadow-lg">0</button>
-                <button onclick="deletePin()" class="h-14 rounded-2xl bg-white/5 hover:bg-white/15 active:scale-90 backdrop-blur-md border border-white/10 flex items-center justify-center transition text-slate-300">
+                <button onclick="pressPin('1')" class="h-16 rounded-2xl bg-white/[0.04] hover:bg-white/[0.08] active:scale-95 backdrop-blur-xl border border-white/10 text-xl font-bold flex items-center justify-center transition shadow-lg text-slate-100">1</button>
+                <button onclick="pressPin('2')" class="h-16 rounded-2xl bg-white/[0.04] hover:bg-white/[0.08] active:scale-95 backdrop-blur-xl border border-white/10 text-xl font-bold flex items-center justify-center transition shadow-lg text-slate-100">2</button>
+                <button onclick="pressPin('3')" class="h-16 rounded-2xl bg-white/[0.04] hover:bg-white/[0.08] active:scale-95 backdrop-blur-xl border border-white/10 text-xl font-bold flex items-center justify-center transition shadow-lg text-slate-100">3</button>
+                <button onclick="pressPin('4')" class="h-16 rounded-2xl bg-white/[0.04] hover:bg-white/[0.08] active:scale-95 backdrop-blur-xl border border-white/10 text-xl font-bold flex items-center justify-center transition shadow-lg text-slate-100">4</button>
+                <button onclick="pressPin('5')" class="h-16 rounded-2xl bg-white/[0.04] hover:bg-white/[0.08] active:scale-95 backdrop-blur-xl border border-white/10 text-xl font-bold flex items-center justify-center transition shadow-lg text-slate-100">5</button>
+                <button onclick="pressPin('6')" class="h-16 rounded-2xl bg-white/[0.04] hover:bg-white/[0.08] active:scale-95 backdrop-blur-xl border border-white/10 text-xl font-bold flex items-center justify-center transition shadow-lg text-slate-100">6</button>
+                <button onclick="pressPin('7')" class="h-16 rounded-2xl bg-white/[0.04] hover:bg-white/[0.08] active:scale-95 backdrop-blur-xl border border-white/10 text-xl font-bold flex items-center justify-center transition shadow-lg text-slate-100">7</button>
+                <button onclick="pressPin('8')" class="h-16 rounded-2xl bg-white/[0.04] hover:bg-white/[0.08] active:scale-95 backdrop-blur-xl border border-white/10 text-xl font-bold flex items-center justify-center transition shadow-lg text-slate-100">8</button>
+                <button onclick="pressPin('9')" class="h-16 rounded-2xl bg-white/[0.04] hover:bg-white/[0.08] active:scale-95 backdrop-blur-xl border border-white/10 text-xl font-bold flex items-center justify-center transition shadow-lg text-slate-100">9</button>
+                <button onclick="clearPin()" class="h-16 rounded-2xl bg-rose-500/10 hover:bg-rose-500/20 active:scale-95 backdrop-blur-xl border border-rose-500/20 text-[10px] font-bold text-rose-300 flex items-center justify-center transition tracking-wider">RESET</button>
+                <button onclick="pressPin('0')" class="h-16 rounded-2xl bg-white/[0.04] hover:bg-white/[0.08] active:scale-95 backdrop-blur-xl border border-white/10 text-xl font-bold flex items-center justify-center transition shadow-lg text-slate-100">0</button>
+                <button onclick="deletePin()" class="h-16 rounded-2xl bg-white/[0.02] hover:bg-white/[0.08] active:scale-95 backdrop-blur-xl border border-white/10 flex items-center justify-center transition text-slate-300">
                     <i data-lucide="delete" class="w-5 h-5"></i>
                 </button>
             </div>
+            
+            <p class="text-center text-[10px] text-slate-500 font-medium mt-4 tracking-wide">Demo PIN Akses: <span class="text-sky-400 font-mono font-bold">1234</span> (Member) atau <span class="text-amber-400 font-mono font-bold">9999</span> (Admin)</p>
         </div>
     </div>
 
@@ -222,56 +235,47 @@
                 <!-- MENU UTAMA GRID -->
                 <div class="bg-white dark:bg-slate-800 rounded-3xl p-4 sm:p-5 shadow-sm border border-slate-100 dark:border-slate-700/60">
                     <h3 class="text-[10px] sm:text-xs font-bold text-slate-400 dark:text-slate-400 uppercase tracking-wider mb-3">Menu Utama</h3>
-                    <div class="grid grid-cols-4 gap-2 text-center">
-                        <button onclick="openModal('modalCatat')" class="flex flex-col items-center gap-1.5 p-2 sm:p-2.5 rounded-2xl bg-sky-50 hover:bg-sky-100 dark:bg-slate-700/50 active:scale-95 transition">
-                            <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-sky-500 text-white flex items-center justify-center shadow-md">
-                                <i data-lucide="plus-circle" class="w-4 h-4 sm:w-5 sm:h-5"></i>
+                    <div class="grid grid-cols-3 gap-3 text-center">
+                        <button onclick="openModal('modalCatat')" class="flex flex-col items-center gap-1.5 p-3 rounded-2xl bg-sky-50 hover:bg-sky-100 dark:bg-slate-700/50 active:scale-95 transition">
+                            <div class="w-10 h-10 rounded-xl bg-sky-500 text-white flex items-center justify-center shadow-md">
+                                <i data-lucide="plus-circle" class="w-5 h-5"></i>
                             </div>
-                            <span class="text-[9px] sm:text-[10px] font-bold text-slate-700 dark:text-slate-200">Catat</span>
+                            <span class="text-[10px] font-bold text-slate-700 dark:text-slate-200">Catat</span>
                         </button>
 
-                        <button onclick="openCameraModal()" class="flex flex-col items-center gap-1.5 p-2 sm:p-2.5 rounded-2xl bg-purple-50 hover:bg-purple-100 dark:bg-slate-700/50 active:scale-95 transition relative overflow-hidden group">
-                            <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-purple-600 to-indigo-500 text-white flex items-center justify-center shadow-md shadow-purple-500/20">
-                                <i data-lucide="camera" class="w-4 h-4 sm:w-5 sm:h-5"></i>
+                        <button onclick="switchTab('tabTabungan')" class="flex flex-col items-center gap-1.5 p-3 rounded-2xl bg-blue-50 hover:bg-blue-100 dark:bg-slate-700/50 active:scale-95 transition">
+                            <div class="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center shadow-md">
+                                <i data-lucide="piggy-bank" class="w-5 h-5"></i>
                             </div>
-                            <span class="text-[9px] sm:text-[10px] font-bold text-slate-700 dark:text-slate-200 flex items-center gap-0.5">
-                                Scan Struk
-                            </span>
+                            <span class="text-[10px] font-bold text-slate-700 dark:text-slate-200">Tabungan</span>
                         </button>
 
-                        <button onclick="switchTab('tabTabungan')" class="flex flex-col items-center gap-1.5 p-2 sm:p-2.5 rounded-2xl bg-blue-50 hover:bg-blue-100 dark:bg-slate-700/50 active:scale-95 transition">
-                            <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center shadow-md">
-                                <i data-lucide="piggy-bank" class="w-4 h-4 sm:w-5 sm:h-5"></i>
+                        <button onclick="switchTab('tabWishlist')" class="flex flex-col items-center gap-1.5 p-3 rounded-2xl bg-indigo-50 hover:bg-indigo-100 dark:bg-slate-700/50 active:scale-95 transition">
+                            <div class="w-10 h-10 rounded-xl bg-indigo-500 text-white flex items-center justify-center shadow-md">
+                                <i data-lucide="heart" class="w-5 h-5"></i>
                             </div>
-                            <span class="text-[9px] sm:text-[10px] font-bold text-slate-700 dark:text-slate-200">Tabungan</span>
+                            <span class="text-[10px] font-bold text-slate-700 dark:text-slate-200">Wishlist</span>
                         </button>
 
-                        <button onclick="switchTab('tabWishlist')" class="flex flex-col items-center gap-1.5 p-2 sm:p-2.5 rounded-2xl bg-indigo-50 hover:bg-indigo-100 dark:bg-slate-700/50 active:scale-95 transition">
-                            <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-indigo-500 text-white flex items-center justify-center shadow-md">
-                                <i data-lucide="heart" class="w-4 h-4 sm:w-5 sm:h-5"></i>
+                        <button onclick="openModal('modalChart')" class="flex flex-col items-center gap-1.5 p-3 rounded-2xl bg-emerald-50 hover:bg-emerald-100 dark:bg-slate-700/50 active:scale-95 transition">
+                            <div class="w-10 h-10 rounded-xl bg-emerald-500 text-white flex items-center justify-center shadow-md">
+                                <i data-lucide="pie-chart" class="w-5 h-5"></i>
                             </div>
-                            <span class="text-[9px] sm:text-[10px] font-bold text-slate-700 dark:text-slate-200">Wishlist</span>
+                            <span class="text-[10px] font-bold text-slate-700 dark:text-slate-200">Laporan</span>
                         </button>
 
-                        <button onclick="openModal('modalChart')" class="flex flex-col items-center gap-1.5 p-2 sm:p-2.5 rounded-2xl bg-emerald-50 hover:bg-emerald-100 dark:bg-slate-700/50 active:scale-95 transition">
-                            <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-emerald-500 text-white flex items-center justify-center shadow-md">
-                                <i data-lucide="pie-chart" class="w-4 h-4 sm:w-5 sm:h-5"></i>
+                        <button onclick="openModal('modalSimulasi')" class="flex flex-col items-center gap-1.5 p-3 rounded-2xl bg-fuchsia-50 hover:bg-fuchsia-100 dark:bg-slate-700/50 active:scale-95 transition">
+                            <div class="w-10 h-10 rounded-xl bg-fuchsia-500 text-white flex items-center justify-center shadow-md">
+                                <i data-lucide="calculator" class="w-5 h-5"></i>
                             </div>
-                            <span class="text-[9px] sm:text-[10px] font-bold text-slate-700 dark:text-slate-200">Laporan</span>
+                            <span class="text-[10px] font-bold text-slate-700 dark:text-slate-200">Simulasi</span>
                         </button>
 
-                        <button onclick="openModal('modalSimulasi')" class="flex flex-col items-center gap-1.5 p-2 sm:p-2.5 rounded-2xl bg-fuchsia-50 hover:bg-fuchsia-100 dark:bg-slate-700/50 active:scale-95 transition">
-                            <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-fuchsia-500 text-white flex items-center justify-center shadow-md">
-                                <i data-lucide="calculator" class="w-4 h-4 sm:w-5 sm:h-5"></i>
+                        <button id="adminQuickBtn" onclick="openAdminModal()" class="flex flex-col items-center gap-1.5 p-3 rounded-2xl bg-amber-50 hover:bg-amber-100 dark:bg-slate-700/50 active:scale-95 transition">
+                            <div class="w-10 h-10 rounded-xl bg-amber-500 text-white flex items-center justify-center shadow-md">
+                                <i data-lucide="shield" class="w-5 h-5"></i>
                             </div>
-                            <span class="text-[9px] sm:text-[10px] font-bold text-slate-700 dark:text-slate-200">Simulasi</span>
-                        </button>
-
-                        <button id="adminQuickBtn" onclick="openAdminModal()" class="flex flex-col items-center gap-1.5 p-2 sm:p-2.5 rounded-2xl bg-amber-50 hover:bg-amber-100 dark:bg-slate-700/50 active:scale-95 transition">
-                            <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-amber-500 text-white flex items-center justify-center shadow-md">
-                                <i data-lucide="shield" class="w-4 h-4 sm:w-5 sm:h-5"></i>
-                            </div>
-                            <span class="text-[9px] sm:text-[10px] font-bold text-slate-700 dark:text-slate-200">Admin</span>
+                            <span class="text-[10px] font-bold text-slate-700 dark:text-slate-200">Admin</span>
                         </button>
                     </div>
                 </div>
@@ -315,7 +319,7 @@
                 <div id="pocketList" class="space-y-3.5"></div>
             </section>
 
-            <!-- TAB 3: WISHLIST IMPAN -->
+            <!-- TAB 3: WISHLIST IMPIAN -->
             <section id="tabWishlist" class="tab-content space-y-5 sm:space-y-6 hidden">
                 <div class="bg-white dark:bg-slate-800 p-4 sm:p-5 rounded-3xl border border-slate-100 dark:border-slate-700/60 shadow-sm flex justify-between items-center">
                     <div>
@@ -370,7 +374,7 @@
             © 2026 CLOUDSCHIO. All rights reserved.
         </footer>
 
-        <!-- iOS 26 LIQUID GLASS DOCK -->
+        <!-- iOS LIQUID GLASS DOCK -->
         <div class="fixed bottom-3 left-0 right-0 z-40 flex justify-center px-4 pointer-events-none">
             <div class="glass-dock rounded-full p-1.5 flex items-center justify-between relative max-w-xs w-full pointer-events-auto">
                 <div id="navGlider" class="nav-glider absolute top-1.5 bottom-1.5 rounded-full bg-sky-500/20 border border-sky-400/40 backdrop-blur-md"></div>
@@ -400,78 +404,6 @@
     </div>
 
     <!-- MODALS & POP-UPS -->
-
-    <!-- MODAL CAMERA SCAN STRUK AI VISION STRICT -->
-    <div id="modalCamera" class="fixed inset-0 z-50 flex items-center justify-center p-0 sm:p-4 hidden animate-fadeIn">
-        <div class="fixed inset-0 bg-slate-950/90 backdrop-blur-md" onclick="closeCameraModal()"></div>
-        <div class="relative bg-slate-900 w-full max-w-md h-full sm:h-auto sm:max-h-[90vh] sm:rounded-3xl p-4 sm:p-6 text-white border border-slate-800 shadow-2xl flex flex-col justify-between z-10 overflow-hidden">
-            
-            <div class="flex justify-between items-center z-20 pb-2">
-                <div class="flex items-center gap-2">
-                    <div class="w-8 h-8 rounded-full bg-purple-500/20 border border-purple-400/40 flex items-center justify-center text-purple-400">
-                        <i data-lucide="sparkles" class="w-4 h-4"></i>
-                    </div>
-                    <div>
-                        <h3 class="font-extrabold text-sm text-white">AI Receipt Scanner</h3>
-                        <p class="text-[10px] text-slate-400">Arahkan struk dengan jelas ke dalam kotak</p>
-                    </div>
-                </div>
-                <button onclick="closeCameraModal()" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-slate-300 hover:text-white transition">
-                    <i data-lucide="x" class="w-5 h-5"></i>
-                </button>
-            </div>
-
-            <div class="relative my-auto w-full aspect-[3/4] bg-slate-950 rounded-2xl overflow-hidden border border-slate-800 flex items-center justify-center shadow-inner">
-                <video id="cameraVideo" autoplay playsinline class="w-full h-full object-cover"></video>
-                <canvas id="cameraCanvas" class="hidden"></canvas>
-                <img id="scannedPreviewImg" class="w-full h-full object-cover hidden" alt="Preview Struk">
-
-                <div id="scanOverlayFrame" class="absolute inset-4 border-2 border-dashed border-purple-400/60 rounded-xl pointer-events-none flex flex-col justify-between p-2">
-                    <div class="flex justify-between">
-                        <div class="w-4 h-4 border-t-2 border-l-2 border-purple-400"></div>
-                        <div class="w-4 h-4 border-t-2 border-r-2 border-purple-400"></div>
-                    </div>
-                    <div class="flex justify-between">
-                        <div class="w-4 h-4 border-b-2 border-l-2 border-purple-400"></div>
-                        <div class="w-4 h-4 border-b-2 border-r-2 border-purple-400"></div>
-                    </div>
-                </div>
-
-                <div id="laserScanner" class="absolute left-0 right-0 h-1 bg-gradient-to-r from-transparent via-purple-400 to-transparent shadow-[0_0_15px_#c084fc] animate-scanLaser hidden"></div>
-
-                <div id="aiScanLoader" class="absolute inset-0 bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center p-4 text-center hidden space-y-3 z-30">
-                    <div class="w-12 h-12 rounded-full border-4 border-purple-500/30 border-t-purple-500 animate-spin"></div>
-                    <p id="aiScanStatusText" class="text-xs font-bold text-purple-300 animate-pulse">Memverifikasi & membaca data struk...</p>
-                </div>
-            </div>
-
-            <div class="z-20 pt-3 space-y-2">
-                <div id="cameraControls" class="flex justify-around items-center">
-                    <label for="uploadReceiptInput" class="w-12 h-12 rounded-2xl bg-white/10 hover:bg-white/20 flex items-center justify-center cursor-pointer transition border border-white/10">
-                        <i data-lucide="image" class="w-5 h-5 text-slate-300"></i>
-                    </label>
-                    <input type="file" id="uploadReceiptInput" accept="image/*" class="hidden" onchange="handleReceiptUpload(event)">
-
-                    <button id="captureBtn" onclick="captureAndAnalyzeReceipt()" class="w-16 h-16 rounded-full bg-gradient-to-tr from-purple-500 to-indigo-600 p-1 shadow-lg shadow-purple-500/30 active:scale-90 transition">
-                        <div class="w-full h-full rounded-full border-2 border-white flex items-center justify-center">
-                            <div class="w-10 h-10 rounded-full bg-white"></div>
-                        </div>
-                    </button>
-
-                    <button onclick="toggleCameraFacing()" class="w-12 h-12 rounded-2xl bg-white/10 hover:bg-white/20 flex items-center justify-center transition border border-white/10">
-                        <i data-lucide="refresh-cw" class="w-5 h-5 text-slate-300"></i>
-                    </button>
-                </div>
-
-                <div id="retakeControls" class="flex gap-2 hidden">
-                    <button onclick="resetCameraPreview()" class="flex-1 py-3 bg-slate-800 hover:bg-slate-700 text-white rounded-xl text-xs font-bold transition flex items-center justify-center gap-1">
-                        <i data-lucide="rotate-ccw" class="w-4 h-4"></i> Ambil / Upload Foto Lain
-                    </button>
-                </div>
-            </div>
-
-        </div>
-    </div>
 
     <!-- MODAL POP-UP LOGIN STATUS -->
     <div id="modalLoginStatus" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden animate-fadeIn">
@@ -523,12 +455,7 @@
         <div class="relative bg-white dark:bg-slate-800 w-full max-w-md rounded-t-3xl sm:rounded-3xl p-6 border border-slate-100 dark:border-slate-700 shadow-2xl space-y-4 z-10 animate-slideUp">
             <div class="flex justify-between items-center border-b border-slate-100 dark:border-slate-700 pb-3">
                 <h3 class="font-extrabold text-sm text-slate-800 dark:text-white">Tambah Catatan Transaksi Harian</h3>
-                <div class="flex items-center gap-2">
-                    <button onclick="closeModal('modalCatat'); openCameraModal();" class="px-2.5 py-1 bg-purple-50 dark:bg-purple-900/40 text-purple-600 dark:text-purple-300 text-[10px] font-bold rounded-lg flex items-center gap-1 border border-purple-200 dark:border-purple-800/50">
-                        <i data-lucide="camera" class="w-3.5 h-3.5"></i> Scan Struk
-                    </button>
-                    <button onclick="closeModal('modalCatat')" class="text-slate-400 hover:text-slate-600"><i data-lucide="x" class="w-5 h-5"></i></button>
-                </div>
+                <button onclick="closeModal('modalCatat')" class="text-slate-400 hover:text-slate-600"><i data-lucide="x" class="w-5 h-5"></i></button>
             </div>
 
             <div class="space-y-3.5">
@@ -546,8 +473,8 @@
                 </div>
 
                 <div>
-                    <label class="block text-xs font-semibold text-slate-500 mb-1">Judul Transaksi / Merchant</label>
-                    <input type="text" id="txTitle" placeholder="Contoh: Belanja Supermarket" class="w-full px-4 py-2.5 text-xs rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700">
+                    <label class="block text-xs font-semibold text-slate-500 mb-1">Judul Transaksi / Keterangan</label>
+                    <input type="text" id="txTitle" placeholder="Contoh: Belanja Bulanan" class="w-full px-4 py-2.5 text-xs rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700">
                 </div>
 
                 <div>
@@ -823,9 +750,6 @@
         let txFilter = 'all';
         let myChart = null;
 
-        let mediaStream = null;
-        let cameraFacingMode = 'environment';
-
         function saveData() {
             localStorage.setItem('myfinance_users', JSON.stringify(users));
             localStorage.setItem('myfinance_db', JSON.stringify(db));
@@ -853,9 +777,9 @@
             const dots = document.querySelectorAll('.pin-dot');
             dots.forEach((dot, index) => {
                 if (index < pinInput.length) {
-                    dot.classList.add('bg-sky-400', 'border-sky-400', 'shadow-lg', 'shadow-sky-400/50');
+                    dot.classList.add('bg-sky-400', 'border-sky-400', 'shadow-lg', 'shadow-sky-400/50', 'scale-110');
                 } else {
-                    dot.classList.remove('bg-sky-400', 'border-sky-400', 'shadow-lg', 'shadow-sky-400/50');
+                    dot.classList.remove('bg-sky-400', 'border-sky-400', 'shadow-lg', 'shadow-sky-400/50', 'scale-110');
                 }
             });
         }
@@ -1073,7 +997,7 @@
 
             const container = document.getElementById('txList');
             if (userTx.length === 0) {
-                container.innerHTML = `<div class="text-center py-6 text-xs text-slate-400">Belum ada transaksi recorded</div>`;
+                container.innerHTML = `<div class="text-center py-6 text-xs text-slate-400">Belum ada transaksi pencatatan</div>`;
                 return;
             }
 
@@ -1166,198 +1090,6 @@
             a.setAttribute('href', url);
             a.setAttribute('download', `MyFinance_Export_${currentUser.username}.csv`);
             a.click();
-        }
-
-        // =======================================
-        // AI VISION RECEIPT CAMERA SCANNER STRICT
-        // =======================================
-
-        async function openCameraModal() {
-            openModal('modalCamera');
-            resetCameraPreview();
-
-            try {
-                const constraints = {
-                    video: { facingMode: cameraFacingMode, width: { ideal: 1280 }, height: { ideal: 720 } }
-                };
-                mediaStream = await navigator.mediaDevices.getUserMedia(constraints);
-                const videoEl = document.getElementById('cameraVideo');
-                videoEl.srcObject = mediaStream;
-                videoEl.play();
-            } catch (err) {
-                console.warn('Gagal membuka kamera langsung:', err);
-            }
-        }
-
-        function closeCameraModal() {
-            stopCameraStream();
-            closeModal('modalCamera');
-        }
-
-        function stopCameraStream() {
-            if (mediaStream) {
-                mediaStream.getTracks().forEach(track => track.stop());
-                mediaStream = null;
-            }
-        }
-
-        function toggleCameraFacing() {
-            stopCameraStream();
-            cameraFacingMode = cameraFacingMode === 'environment' ? 'user' : 'environment';
-            openCameraModal();
-        }
-
-        function resetCameraPreview() {
-            document.getElementById('scannedPreviewImg').classList.add('hidden');
-            document.getElementById('cameraVideo').classList.remove('hidden');
-            document.getElementById('cameraControls').classList.remove('hidden');
-            document.getElementById('retakeControls').classList.add('hidden');
-            document.getElementById('laserScanner').classList.add('hidden');
-            document.getElementById('aiScanLoader').classList.add('hidden');
-            document.getElementById('scanOverlayFrame').classList.remove('hidden');
-        }
-
-        function handleReceiptUpload(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    processReceiptImageBase64(e.target.result);
-                };
-                reader.readAsDataURL(file);
-            }
-        }
-
-        function captureAndAnalyzeReceipt() {
-            const videoEl = document.getElementById('cameraVideo');
-            const canvasEl = document.getElementById('cameraCanvas');
-
-            if (!mediaStream && videoEl.classList.contains('hidden')) return;
-
-            canvasEl.width = videoEl.videoWidth || 1280;
-            canvasEl.height = videoEl.videoHeight || 720;
-
-            const ctx = canvasEl.getContext('2d');
-            ctx.drawImage(videoEl, 0, 0, canvasEl.width, canvasEl.height);
-
-            const base64Image = canvasEl.toDataURL('image/jpeg', 0.9);
-            processReceiptImageBase64(base64Image);
-        }
-
-        async function processReceiptImageBase64(base64Data) {
-            stopCameraStream();
-            const previewImg = document.getElementById('scannedPreviewImg');
-            previewImg.src = base64Data;
-            previewImg.classList.remove('hidden');
-            document.getElementById('cameraVideo').classList.add('hidden');
-            document.getElementById('cameraControls').classList.add('hidden');
-            document.getElementById('retakeControls').classList.remove('hidden');
-
-            document.getElementById('laserScanner').classList.remove('hidden');
-            document.getElementById('aiScanLoader').classList.remove('hidden');
-            document.getElementById('aiScanStatusText').innerText = "Memverifikasi & membaca data struk...";
-
-            try {
-                const apiKey = ""; // Masukkan Gemini API Key jika ada
-                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
-
-                const cleanBase64 = base64Data.split(',')[1];
-
-                const promptText = `Kamu adalah OCR receipt extractor profesional.
-Tugas: Analisis foto ini secara ketat.
-VALIDASI PERTAMA: Apakah gambar ini benar-benar struk / nota / bukti transaksi / invoice pembayaran resmi?
-- Jika BUKAN struk (seperti kertas kosong, foto wajah, pemandangan, teks acak tanpa harga total), kembalikan JSON persis:
-{"isReceipt": false}
-
-- Jika BENAR struk, ekstrak data persis yang tertulis di dalam foto:
-1. "merchant": Nama Toko / Merchant yang tertera di bagian atas struk.
-2. "total": Nominal AKHIR total transaksi murni angka tanpa titik/koma/Rp (misal: 125000). Cari dari baris TOTAL, GRAND TOTAL, CASH, atau TUNAI.
-3. "category": Pilih salah satu saja yang paling sesuai: ["Makanan", "Belanja", "Tagihan", "Hiburan", "Lainnya"].
-4. "notes": Rincian item utama yang ada pada struk (Maksimal 15 kata).
-
-Return JSON murni saja tanpa markdown/penjelasan tambahan:
-{"isReceipt": true, "merchant":"...", "total":12345, "category":"...", "notes":"..."}`;
-
-                const payload = {
-                    contents: [
-                        {
-                            role: "user",
-                            parts: [
-                                { text: promptText },
-                                {
-                                    inlineData: {
-                                        mimeType: "image/jpeg",
-                                        data: cleanBase64
-                                    }
-                                }
-                            ]
-                        }
-                    ],
-                    generationConfig: {
-                        responseMimeType: "application/json"
-                    }
-                };
-
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-
-                const result = await response.json();
-                const rawJsonText = result?.candidates?.[0]?.content?.parts?.[0]?.text;
-
-                if (rawJsonText) {
-                    const cleanJson = rawJsonText.replace(/```json/g, '').replace(/```/g, '').trim();
-                    const parsedData = JSON.parse(cleanJson);
-
-                    if (parsedData.isReceipt === false) {
-                        alert("Gambar tidak terdeteksi sebagai struk atau nota pembayaran!");
-                        resetCameraPreview();
-                        return;
-                    }
-
-                    fillCatatFormFromAI(parsedData);
-                } else {
-                    throw new Error("Respon AI kosong.");
-                }
-
-            } catch (err) {
-                console.warn('Scan Gagal:', err);
-                alert("Gagal membaca gambar. Pastikan foto struk terlihat jelas dan terang.");
-                resetCameraPreview();
-            }
-        }
-
-        function fillCatatFormFromAI(data) {
-            closeCameraModal();
-            openModal('modalCatat');
-
-            let numericTotal = 0;
-            if (typeof data.total === 'number') {
-                numericTotal = data.total;
-            } else if (typeof data.total === 'string') {
-                numericTotal = parseInt(data.total.replace(/[^0-9]/g, ''), 10) || 0;
-            }
-
-            document.getElementById('txType').value = 'expense';
-            document.getElementById('txAmount').value = numericTotal;
-            document.getElementById('txTitle').value = (data.merchant && data.merchant !== '...') ? data.merchant : 'Pembelian Struk';
-            document.getElementById('txDesc').value = (data.notes && data.notes !== '...') ? data.notes : 'Struk di-scan otomatis';
-
-            if (data.category) {
-                const categorySelect = document.getElementById('txCategory');
-                const validCategories = ['Makanan', 'Belanja', 'Gaji', 'Tagihan', 'Hiburan', 'Lainnya'];
-                if (validCategories.includes(data.category)) {
-                    categorySelect.value = data.category;
-                } else {
-                    categorySelect.value = 'Belanja';
-                }
-            }
-
-            if (typeof confetti === 'function') {
-                confetti({ particleCount: 40, spread: 50, origin: { y: 0.7 } });
-            }
         }
 
         // SIMULASI TABUNGAN & RENDER

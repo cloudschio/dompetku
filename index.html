@@ -61,34 +61,36 @@
 
         .glass-card {
             background: rgba(255, 255, 255, 0.88);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.04);
         }
         .dark .glass-card {
-            background: rgba(30, 41, 59, 0.88);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+            background: rgba(30, 41, 59, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.3);
         }
 
         .glass-dock {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(20px) saturate(180%);
-            -webkit-backdrop-filter: blur(20px) saturate(180%);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.82);
+            backdrop-filter: blur(25px) saturate(190%);
+            -webkit-backdrop-filter: blur(25px) saturate(190%);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.12);
         }
         .dark .glass-dock {
-            background: rgba(15, 23, 42, 0.8);
-            backdrop-filter: blur(20px) saturate(180%);
-            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            background: rgba(15, 23, 42, 0.82);
+            backdrop-filter: blur(25px) saturate(190%);
+            -webkit-backdrop-filter: blur(25px) saturate(190%);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
         }
 
         .nav-glider {
-            transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), width 0.35s ease;
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         ::-webkit-scrollbar { width: 4px; height: 4px; }
@@ -97,35 +99,35 @@
         .dark ::-webkit-scrollbar-thumb { background: #334155; }
     </style>
 </head>
-<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 antialiased min-h-screen pb-36 transition-colors duration-200 selection:bg-sky-500 selection:text-white">
+<body class="bg-slate-100 dark:bg-slate-950 text-slate-800 dark:text-slate-100 antialiased min-h-screen pb-36 transition-colors duration-300 selection:bg-sky-500 selection:text-white">
 
-    <!-- PROFESSIONAL ENTERPRISE LOCK SCREEN / LOGIN PAGE -->
+    <!-- ENTERPRISE LOCK SCREEN / LOGIN PAGE -->
     <div id="lockScreen" class="fixed inset-0 z-50 bg-slate-950 flex flex-col items-center justify-between p-6 text-white select-none animate-fadeIn overflow-y-auto">
         <!-- Ambient Glowing Orbs -->
-        <div class="absolute top-1/6 left-1/2 -translate-x-1/2 w-96 h-96 bg-sky-600/15 rounded-full blur-[120px] pointer-events-none animate-pulseGlow"></div>
-        <div class="absolute bottom-1/4 right-10 w-72 h-72 bg-blue-600/10 rounded-full blur-[100px] pointer-events-none"></div>
+        <div class="absolute top-1/6 left-1/2 -translate-x-1/2 w-96 h-96 bg-sky-500/15 rounded-full blur-[130px] pointer-events-none animate-pulseGlow"></div>
+        <div class="absolute bottom-1/4 right-10 w-72 h-72 bg-blue-600/10 rounded-full blur-[110px] pointer-events-none"></div>
 
         <!-- Top Header Identity -->
-        <div class="mt-10 sm:mt-12 text-center animate-slideUp relative z-10 space-y-2">
-            <div class="w-16 h-16 sm:w-20 sm:h-20 mx-auto bg-gradient-to-tr from-sky-500 via-blue-600 to-indigo-600 rounded-[24px] p-0.5 shadow-2xl shadow-sky-500/20 transform hover:scale-105 transition duration-300">
-                <div class="w-full h-full bg-slate-900/80 backdrop-blur-xl rounded-[22px] flex items-center justify-center border border-white/15">
-                    <i data-lucide="lock-keyhole" class="w-8 h-8 sm:w-9 sm:h-9 text-sky-400"></i>
+        <div class="mt-12 sm:mt-16 text-center animate-slideUp relative z-10 space-y-3">
+            <div class="w-20 h-20 sm:w-24 sm:h-24 mx-auto bg-gradient-to-tr from-sky-400 via-blue-600 to-indigo-600 rounded-[28px] p-0.5 shadow-2xl shadow-sky-500/25 transform hover:scale-105 transition duration-300">
+                <div class="w-full h-full bg-slate-900/90 backdrop-blur-2xl rounded-[26px] flex items-center justify-center border border-white/20">
+                    <i data-lucide="shield-check" class="w-10 h-10 sm:w-11 sm:h-11 text-sky-400"></i>
                 </div>
             </div>
             <div>
-                <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-white via-slate-100 to-sky-200 bg-clip-text text-transparent">MyFinance</h1>
-                <p class="text-[11px] sm:text-xs text-slate-400 font-medium tracking-wide mt-0.5">Secure Enterprise Financial Vault</p>
+                <h1 class="text-3xl font-extrabold tracking-tight bg-gradient-to-r from-white via-slate-100 to-sky-300 bg-clip-text text-transparent">MyFinance</h1>
+                <p class="text-xs text-slate-400 font-medium tracking-wide mt-1">Enterprise Secured Vault</p>
             </div>
         </div>
 
         <!-- PIN Dots Indicator Area -->
-        <div class="my-auto flex flex-col items-center relative z-10 w-full max-w-xs py-6">
-            <div class="flex items-center gap-2 px-3 py-1.5 bg-white/[0.03] border border-white/10 rounded-full mb-6 backdrop-blur-md shadow-sm">
-                <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-400"></i>
-                <span class="text-[10px] font-bold text-slate-300 tracking-wider uppercase">Autentikasi PIN 4-Digit</span>
+        <div class="my-auto flex flex-col items-center relative z-10 w-full max-w-xs py-4">
+            <div class="flex items-center gap-2 px-3.5 py-1.5 bg-white/[0.04] border border-white/10 rounded-full mb-6 backdrop-blur-xl shadow-lg">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                <span class="text-[10px] font-bold text-slate-300 tracking-widest uppercase">Masukkan PIN Pengamanan</span>
             </div>
 
-            <div id="pinDots" class="flex gap-4 mb-2 bg-slate-900/60 p-4 rounded-3xl border border-white/10 backdrop-blur-xl shadow-2xl transition-all">
+            <div id="pinDots" class="flex gap-4 mb-2 bg-slate-900/70 p-4.5 rounded-3xl border border-white/10 backdrop-blur-2xl shadow-2xl transition-all">
                 <div class="pin-dot w-4 h-4 rounded-full border-2 border-white/30 bg-white/5 transition-all duration-300"></div>
                 <div class="pin-dot w-4 h-4 rounded-full border-2 border-white/30 bg-white/5 transition-all duration-300"></div>
                 <div class="pin-dot w-4 h-4 rounded-full border-2 border-white/30 bg-white/5 transition-all duration-300"></div>
@@ -134,56 +136,54 @@
         </div>
 
         <!-- Glassmorphism Keypad -->
-        <div class="w-full max-w-xs mb-6 sm:mb-10 relative z-10">
-            <div class="grid grid-cols-3 gap-3 text-center">
-                <button onclick="pressPin('1')" class="h-16 rounded-2xl bg-white/[0.04] hover:bg-white/[0.08] active:scale-95 backdrop-blur-xl border border-white/10 text-xl font-bold flex items-center justify-center transition shadow-lg text-slate-100">1</button>
-                <button onclick="pressPin('2')" class="h-16 rounded-2xl bg-white/[0.04] hover:bg-white/[0.08] active:scale-95 backdrop-blur-xl border border-white/10 text-xl font-bold flex items-center justify-center transition shadow-lg text-slate-100">2</button>
-                <button onclick="pressPin('3')" class="h-16 rounded-2xl bg-white/[0.04] hover:bg-white/[0.08] active:scale-95 backdrop-blur-xl border border-white/10 text-xl font-bold flex items-center justify-center transition shadow-lg text-slate-100">3</button>
-                <button onclick="pressPin('4')" class="h-16 rounded-2xl bg-white/[0.04] hover:bg-white/[0.08] active:scale-95 backdrop-blur-xl border border-white/10 text-xl font-bold flex items-center justify-center transition shadow-lg text-slate-100">4</button>
-                <button onclick="pressPin('5')" class="h-16 rounded-2xl bg-white/[0.04] hover:bg-white/[0.08] active:scale-95 backdrop-blur-xl border border-white/10 text-xl font-bold flex items-center justify-center transition shadow-lg text-slate-100">5</button>
-                <button onclick="pressPin('6')" class="h-16 rounded-2xl bg-white/[0.04] hover:bg-white/[0.08] active:scale-95 backdrop-blur-xl border border-white/10 text-xl font-bold flex items-center justify-center transition shadow-lg text-slate-100">6</button>
-                <button onclick="pressPin('7')" class="h-16 rounded-2xl bg-white/[0.04] hover:bg-white/[0.08] active:scale-95 backdrop-blur-xl border border-white/10 text-xl font-bold flex items-center justify-center transition shadow-lg text-slate-100">7</button>
-                <button onclick="pressPin('8')" class="h-16 rounded-2xl bg-white/[0.04] hover:bg-white/[0.08] active:scale-95 backdrop-blur-xl border border-white/10 text-xl font-bold flex items-center justify-center transition shadow-lg text-slate-100">8</button>
-                <button onclick="pressPin('9')" class="h-16 rounded-2xl bg-white/[0.04] hover:bg-white/[0.08] active:scale-95 backdrop-blur-xl border border-white/10 text-xl font-bold flex items-center justify-center transition shadow-lg text-slate-100">9</button>
-                <button onclick="clearPin()" class="h-16 rounded-2xl bg-rose-500/10 hover:bg-rose-500/20 active:scale-95 backdrop-blur-xl border border-rose-500/20 text-[10px] font-bold text-rose-300 flex items-center justify-center transition tracking-wider">RESET</button>
-                <button onclick="pressPin('0')" class="h-16 rounded-2xl bg-white/[0.04] hover:bg-white/[0.08] active:scale-95 backdrop-blur-xl border border-white/10 text-xl font-bold flex items-center justify-center transition shadow-lg text-slate-100">0</button>
-                <button onclick="deletePin()" class="h-16 rounded-2xl bg-white/[0.02] hover:bg-white/[0.08] active:scale-95 backdrop-blur-xl border border-white/10 flex items-center justify-center transition text-slate-300">
+        <div class="w-full max-w-xs mb-8 sm:mb-12 relative z-10">
+            <div class="grid grid-cols-3 gap-3.5 text-center">
+                <button onclick="pressPin('1')" class="h-16 rounded-2xl bg-white/[0.05] hover:bg-white/[0.1] active:scale-95 backdrop-blur-2xl border border-white/10 text-xl font-bold flex items-center justify-center transition shadow-lg text-slate-100">1</button>
+                <button onclick="pressPin('2')" class="h-16 rounded-2xl bg-white/[0.05] hover:bg-white/[0.1] active:scale-95 backdrop-blur-2xl border border-white/10 text-xl font-bold flex items-center justify-center transition shadow-lg text-slate-100">2</button>
+                <button onclick="pressPin('3')" class="h-16 rounded-2xl bg-white/[0.05] hover:bg-white/[0.1] active:scale-95 backdrop-blur-2xl border border-white/10 text-xl font-bold flex items-center justify-center transition shadow-lg text-slate-100">3</button>
+                <button onclick="pressPin('4')" class="h-16 rounded-2xl bg-white/[0.05] hover:bg-white/[0.1] active:scale-95 backdrop-blur-2xl border border-white/10 text-xl font-bold flex items-center justify-center transition shadow-lg text-slate-100">4</button>
+                <button onclick="pressPin('5')" class="h-16 rounded-2xl bg-white/[0.05] hover:bg-white/[0.1] active:scale-95 backdrop-blur-2xl border border-white/10 text-xl font-bold flex items-center justify-center transition shadow-lg text-slate-100">5</button>
+                <button onclick="pressPin('6')" class="h-16 rounded-2xl bg-white/[0.05] hover:bg-white/[0.1] active:scale-95 backdrop-blur-2xl border border-white/10 text-xl font-bold flex items-center justify-center transition shadow-lg text-slate-100">6</button>
+                <button onclick="pressPin('7')" class="h-16 rounded-2xl bg-white/[0.05] hover:bg-white/[0.1] active:scale-95 backdrop-blur-2xl border border-white/10 text-xl font-bold flex items-center justify-center transition shadow-lg text-slate-100">7</button>
+                <button onclick="pressPin('8')" class="h-16 rounded-2xl bg-white/[0.05] hover:bg-white/[0.1] active:scale-95 backdrop-blur-2xl border border-white/10 text-xl font-bold flex items-center justify-center transition shadow-lg text-slate-100">8</button>
+                <button onclick="pressPin('9')" class="h-16 rounded-2xl bg-white/[0.05] hover:bg-white/[0.1] active:scale-95 backdrop-blur-2xl border border-white/10 text-xl font-bold flex items-center justify-center transition shadow-lg text-slate-100">9</button>
+                <button onclick="clearPin()" class="h-16 rounded-2xl bg-rose-500/10 hover:bg-rose-500/20 active:scale-95 backdrop-blur-2xl border border-rose-500/20 text-[10px] font-extrabold text-rose-300 flex items-center justify-center transition tracking-wider">RESET</button>
+                <button onclick="pressPin('0')" class="h-16 rounded-2xl bg-white/[0.05] hover:bg-white/[0.1] active:scale-95 backdrop-blur-2xl border border-white/10 text-xl font-bold flex items-center justify-center transition shadow-lg text-slate-100">0</button>
+                <button onclick="deletePin()" class="h-16 rounded-2xl bg-white/[0.03] hover:bg-white/[0.1] active:scale-95 backdrop-blur-2xl border border-white/10 flex items-center justify-center transition text-slate-300">
                     <i data-lucide="delete" class="w-5 h-5"></i>
                 </button>
             </div>
-            
-            <p class="text-center text-[10px] text-slate-500 font-medium mt-4 tracking-wide">Demo PIN Akses: <span class="text-sky-400 font-mono font-bold">1234</span> (Member) atau <span class="text-amber-400 font-mono font-bold">9999</span> (Admin)</p>
         </div>
     </div>
 
     <!-- MAIN APP CONTAINER -->
     <div id="appContainer" class="hidden min-h-screen">
 
-        <header class="bg-gradient-to-b from-blue-600 via-sky-500 to-slate-50 dark:to-slate-900 pt-6 sm:pt-8 pb-10 sm:pb-12 px-4 sm:px-6 rounded-b-[2.5rem] shadow-sm transition-colors duration-200">
+        <header class="bg-gradient-to-b from-blue-600 via-sky-500 to-slate-100 dark:to-slate-950 pt-6 sm:pt-8 pb-10 sm:pb-12 px-4 sm:px-6 rounded-b-[2.5rem] shadow-md transition-colors duration-300">
             <div class="flex justify-between items-center mb-5 sm:mb-6 text-white max-w-md mx-auto">
                 <div class="flex items-center gap-3">
-                    <div id="userAvatarHeader" class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center font-bold text-base sm:text-lg border border-white/40 shadow-inner overflow-hidden"></div>
+                    <div id="userAvatarHeader" class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-white/20 backdrop-blur-xl flex items-center justify-center font-bold text-base sm:text-lg border border-white/40 shadow-inner overflow-hidden"></div>
                     <div>
                         <div class="flex items-center gap-1.5">
                             <p class="text-[11px] sm:text-xs text-blue-100 font-medium">Selamat Datang,</p>
-                            <span id="roleBadge" class="px-2 py-0.2 bg-white/20 backdrop-blur-md text-white border border-white/30 rounded-full text-[8px] sm:text-[9px] font-extrabold uppercase">MEMBER</span>
+                            <span id="roleBadge" class="px-2 py-0.5 bg-white/20 backdrop-blur-md text-white border border-white/30 rounded-full text-[8px] sm:text-[9px] font-extrabold uppercase">MEMBER</span>
                         </div>
                         <h1 id="userFullName" class="font-extrabold text-sm sm:text-base tracking-wide">Pengguna</h1>
                     </div>
                 </div>
                 <div class="flex items-center gap-2">
-                    <button onclick="toggleDarkMode()" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/30 hover:bg-white/30 active:scale-90 transition">
+                    <button onclick="toggleDarkMode()" class="w-10 h-10 rounded-2xl bg-white/20 backdrop-blur-xl flex items-center justify-center border border-white/30 hover:bg-white/30 active:scale-90 transition shadow-sm">
                         <i id="darkModeIcon" data-lucide="moon" class="w-4 h-4 sm:w-5 sm:h-5 text-white"></i>
                     </button>
-                    <button onclick="lockApp()" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/30 hover:bg-white/30 active:scale-90 transition text-rose-200">
+                    <button onclick="lockApp()" class="w-10 h-10 rounded-2xl bg-white/20 backdrop-blur-xl flex items-center justify-center border border-white/30 hover:bg-white/30 active:scale-90 transition text-rose-200 shadow-sm">
                         <i data-lucide="log-out" class="w-4 h-4 sm:w-5 sm:h-5"></i>
                     </button>
                 </div>
             </div>
 
             <!-- MAIN BALANCE CARD -->
-            <div class="max-w-md mx-auto glass-card rounded-3xl p-5 sm:p-6 shadow-xl border border-white/60 dark:border-white/10 space-y-4 animate-slideUp">
-                <div class="flex justify-between items-start border-b border-slate-100 dark:border-slate-700/60 pb-3">
+            <div class="max-w-md mx-auto glass-card rounded-3xl p-5 sm:p-6 shadow-xl border border-white/70 dark:border-white/10 space-y-4 animate-slideUp">
+                <div class="flex justify-between items-start border-b border-slate-200/60 dark:border-slate-700/60 pb-3">
                     <div>
                         <span class="text-[10px] sm:text-[11px] font-bold text-slate-400 dark:text-slate-400 uppercase tracking-wider">Saldo Operasional (Kas Harian)</span>
                         <h2 id="operationalBalanceText" class="text-2xl sm:text-3xl font-extrabold text-slate-800 dark:text-white tracking-tight">Rp 0</h2>
@@ -192,7 +192,7 @@
                 </div>
 
                 <!-- TOTAL SALDO TABUNGAN -->
-                <div class="flex justify-between items-center bg-sky-50/80 dark:bg-slate-900/50 p-3 rounded-2xl border border-sky-100 dark:border-slate-700/50">
+                <div class="flex justify-between items-center bg-sky-50/80 dark:bg-slate-900/60 p-3.5 rounded-2xl border border-sky-100 dark:border-slate-700/50">
                     <div>
                         <p class="text-[10px] font-bold text-sky-600 dark:text-sky-400 uppercase">Total Saldo Tabungan Simpanan</p>
                         <p id="mainSavingsBalanceText" class="text-base font-extrabold text-slate-800 dark:text-slate-100">Rp 0</p>
@@ -201,7 +201,7 @@
                 </div>
 
                 <!-- ARUS KAS MURNI -->
-                <div class="p-3 sm:p-3.5 bg-slate-50/90 dark:bg-slate-900/60 rounded-2xl border border-slate-100 dark:border-slate-700/50">
+                <div class="p-3.5 bg-slate-50/90 dark:bg-slate-900/60 rounded-2xl border border-slate-200/50 dark:border-slate-700/50">
                     <p class="text-[9px] sm:text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2">Arus Kas Catatan Keuangan Harian</p>
                     <div class="grid grid-cols-2 gap-2 sm:gap-3">
                         <div class="flex items-center gap-2">
@@ -233,46 +233,46 @@
             <section id="tabKeuangan" class="tab-content space-y-5 sm:space-y-6">
 
                 <!-- MENU UTAMA GRID -->
-                <div class="bg-white dark:bg-slate-800 rounded-3xl p-4 sm:p-5 shadow-sm border border-slate-100 dark:border-slate-700/60">
+                <div class="bg-white dark:bg-slate-800 rounded-3xl p-4 sm:p-5 shadow-sm border border-slate-200/80 dark:border-slate-700/60">
                     <h3 class="text-[10px] sm:text-xs font-bold text-slate-400 dark:text-slate-400 uppercase tracking-wider mb-3">Menu Utama</h3>
                     <div class="grid grid-cols-3 gap-3 text-center">
                         <button onclick="openModal('modalCatat')" class="flex flex-col items-center gap-1.5 p-3 rounded-2xl bg-sky-50 hover:bg-sky-100 dark:bg-slate-700/50 active:scale-95 transition">
-                            <div class="w-10 h-10 rounded-xl bg-sky-500 text-white flex items-center justify-center shadow-md">
+                            <div class="w-10 h-10 rounded-2xl bg-sky-500 text-white flex items-center justify-center shadow-md shadow-sky-500/20">
                                 <i data-lucide="plus-circle" class="w-5 h-5"></i>
                             </div>
                             <span class="text-[10px] font-bold text-slate-700 dark:text-slate-200">Catat</span>
                         </button>
 
                         <button onclick="switchTab('tabTabungan')" class="flex flex-col items-center gap-1.5 p-3 rounded-2xl bg-blue-50 hover:bg-blue-100 dark:bg-slate-700/50 active:scale-95 transition">
-                            <div class="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center shadow-md">
+                            <div class="w-10 h-10 rounded-2xl bg-blue-600 text-white flex items-center justify-center shadow-md shadow-blue-600/20">
                                 <i data-lucide="piggy-bank" class="w-5 h-5"></i>
                             </div>
                             <span class="text-[10px] font-bold text-slate-700 dark:text-slate-200">Tabungan</span>
                         </button>
 
                         <button onclick="switchTab('tabWishlist')" class="flex flex-col items-center gap-1.5 p-3 rounded-2xl bg-indigo-50 hover:bg-indigo-100 dark:bg-slate-700/50 active:scale-95 transition">
-                            <div class="w-10 h-10 rounded-xl bg-indigo-500 text-white flex items-center justify-center shadow-md">
+                            <div class="w-10 h-10 rounded-2xl bg-indigo-500 text-white flex items-center justify-center shadow-md shadow-indigo-500/20">
                                 <i data-lucide="heart" class="w-5 h-5"></i>
                             </div>
                             <span class="text-[10px] font-bold text-slate-700 dark:text-slate-200">Wishlist</span>
                         </button>
 
                         <button onclick="openModal('modalChart')" class="flex flex-col items-center gap-1.5 p-3 rounded-2xl bg-emerald-50 hover:bg-emerald-100 dark:bg-slate-700/50 active:scale-95 transition">
-                            <div class="w-10 h-10 rounded-xl bg-emerald-500 text-white flex items-center justify-center shadow-md">
+                            <div class="w-10 h-10 rounded-2xl bg-emerald-500 text-white flex items-center justify-center shadow-md shadow-emerald-500/20">
                                 <i data-lucide="pie-chart" class="w-5 h-5"></i>
                             </div>
                             <span class="text-[10px] font-bold text-slate-700 dark:text-slate-200">Laporan</span>
                         </button>
 
                         <button onclick="openModal('modalSimulasi')" class="flex flex-col items-center gap-1.5 p-3 rounded-2xl bg-fuchsia-50 hover:bg-fuchsia-100 dark:bg-slate-700/50 active:scale-95 transition">
-                            <div class="w-10 h-10 rounded-xl bg-fuchsia-500 text-white flex items-center justify-center shadow-md">
+                            <div class="w-10 h-10 rounded-2xl bg-fuchsia-500 text-white flex items-center justify-center shadow-md shadow-fuchsia-500/20">
                                 <i data-lucide="calculator" class="w-5 h-5"></i>
                             </div>
                             <span class="text-[10px] font-bold text-slate-700 dark:text-slate-200">Simulasi</span>
                         </button>
 
                         <button id="adminQuickBtn" onclick="openAdminModal()" class="flex flex-col items-center gap-1.5 p-3 rounded-2xl bg-amber-50 hover:bg-amber-100 dark:bg-slate-700/50 active:scale-95 transition">
-                            <div class="w-10 h-10 rounded-xl bg-amber-500 text-white flex items-center justify-center shadow-md">
+                            <div class="w-10 h-10 rounded-2xl bg-amber-500 text-white flex items-center justify-center shadow-md shadow-amber-500/20">
                                 <i data-lucide="shield" class="w-5 h-5"></i>
                             </div>
                             <span class="text-[10px] font-bold text-slate-700 dark:text-slate-200">Admin</span>
@@ -281,7 +281,7 @@
                 </div>
 
                 <!-- RIWAYAT TRANSAKSI HARIAN -->
-                <div class="bg-white dark:bg-slate-800 p-4 sm:p-5 rounded-3xl border border-slate-100 dark:border-slate-700/60 shadow-sm">
+                <div class="bg-white dark:bg-slate-800 p-4 sm:p-5 rounded-3xl border border-slate-200/80 dark:border-slate-700/60 shadow-sm">
                     <div class="flex justify-between items-center mb-3.5">
                         <h3 class="font-bold text-slate-800 dark:text-white text-xs sm:text-sm">Catatan Keuangan Harian</h3>
                         <button onclick="exportToCSV()" class="px-2.5 py-1 text-[9px] sm:text-[10px] font-bold rounded-lg bg-emerald-50 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-300 flex items-center gap-1 active:scale-95 transition">
@@ -306,7 +306,7 @@
 
             <!-- TAB 2: TABUNGAN -->
             <section id="tabTabungan" class="tab-content space-y-5 sm:space-y-6 hidden">
-                <div class="bg-white dark:bg-slate-800 p-4 sm:p-5 rounded-3xl border border-slate-100 dark:border-slate-700/60 shadow-sm flex justify-between items-center">
+                <div class="bg-white dark:bg-slate-800 p-4 sm:p-5 rounded-3xl border border-slate-200/80 dark:border-slate-700/60 shadow-sm flex justify-between items-center">
                     <div>
                         <h2 class="text-sm sm:text-base font-extrabold text-slate-800 dark:text-white">Alokasi Tabungan Simpanan</h2>
                         <p class="text-[10px] sm:text-xs text-slate-400">Dana khusus terpisah dari kas harian</p>
@@ -319,9 +319,9 @@
                 <div id="pocketList" class="space-y-3.5"></div>
             </section>
 
-            <!-- TAB 3: WISHLIST IMPIAN -->
+            <!-- TAB 3: WISHLIST IMPAIAN -->
             <section id="tabWishlist" class="tab-content space-y-5 sm:space-y-6 hidden">
-                <div class="bg-white dark:bg-slate-800 p-4 sm:p-5 rounded-3xl border border-slate-100 dark:border-slate-700/60 shadow-sm flex justify-between items-center">
+                <div class="bg-white dark:bg-slate-800 p-4 sm:p-5 rounded-3xl border border-slate-200/80 dark:border-slate-700/60 shadow-sm flex justify-between items-center">
                     <div>
                         <h2 class="text-sm sm:text-base font-extrabold text-slate-800 dark:text-white">Wishlist Impian</h2>
                         <p class="text-[10px] sm:text-xs text-slate-400">Target barang impian & alokasinya</p>
@@ -336,7 +336,7 @@
 
             <!-- TAB 4: PROFIL -->
             <section id="tabProfil" class="tab-content space-y-5 sm:space-y-6 hidden">
-                <div class="bg-white dark:bg-slate-800 p-5 sm:p-6 rounded-3xl border border-slate-100 dark:border-slate-700/60 shadow-sm space-y-4">
+                <div class="bg-white dark:bg-slate-800 p-5 sm:p-6 rounded-3xl border border-slate-200/80 dark:border-slate-700/60 shadow-sm space-y-4">
                     <h2 class="text-sm sm:text-base font-extrabold text-slate-800 dark:text-white">Pengaturan Profil</h2>
                     
                     <div class="flex flex-col items-center mb-2">
@@ -370,31 +370,31 @@
 
         </main>
 
-        <footer class="mt-10 mb-24 text-center text-[10px] sm:text-[11px] text-slate-400 dark:text-slate-500 font-medium tracking-wide">
+        <footer class="mt-10 mb-28 text-center text-[10px] sm:text-[11px] text-slate-400 dark:text-slate-500 font-medium tracking-wide">
             © 2026 CLOUDSCHIO. All rights reserved.
         </footer>
 
-        <!-- iOS LIQUID GLASS DOCK -->
-        <div class="fixed bottom-3 left-0 right-0 z-40 flex justify-center px-4 pointer-events-none">
-            <div class="glass-dock rounded-full p-1.5 flex items-center justify-between relative max-w-xs w-full pointer-events-auto">
-                <div id="navGlider" class="nav-glider absolute top-1.5 bottom-1.5 rounded-full bg-sky-500/20 border border-sky-400/40 backdrop-blur-md"></div>
+        <!-- iOS LIQUID GLASS DOCK (CENTERED GLIDER & BUTTONS) -->
+        <div class="fixed bottom-4 left-0 right-0 z-40 flex justify-center px-4 pointer-events-none">
+            <div class="glass-dock rounded-full p-2 flex items-center justify-around relative max-w-sm w-full pointer-events-auto">
+                <div id="navGlider" class="nav-glider absolute top-2 bottom-2 rounded-full bg-sky-500/20 border border-sky-400/40 backdrop-blur-xl"></div>
 
-                <button onclick="switchTab('tabKeuangan')" class="nav-item flex-1 py-1.5 sm:py-2 rounded-full flex flex-col items-center justify-center gap-0.5 z-10 text-sky-600 dark:text-sky-400">
+                <button onclick="switchTab('tabKeuangan')" class="nav-item flex-1 py-2 rounded-full flex flex-col items-center justify-center gap-0.5 z-10 text-sky-600 dark:text-sky-400">
                     <i data-lucide="wallet" class="w-4 h-4 sm:w-5 sm:h-5"></i>
                     <span class="text-[8px] sm:text-[9px] font-extrabold tracking-tight">Keuangan</span>
                 </button>
 
-                <button onclick="switchTab('tabTabungan')" class="nav-item flex-1 py-1.5 sm:py-2 rounded-full flex flex-col items-center justify-center gap-0.5 z-10 text-slate-400 dark:text-slate-400">
+                <button onclick="switchTab('tabTabungan')" class="nav-item flex-1 py-2 rounded-full flex flex-col items-center justify-center gap-0.5 z-10 text-slate-400 dark:text-slate-400">
                     <i data-lucide="piggy-bank" class="w-4 h-4 sm:w-5 sm:h-5"></i>
                     <span class="text-[8px] sm:text-[9px] font-extrabold tracking-tight">Tabungan</span>
                 </button>
 
-                <button onclick="switchTab('tabWishlist')" class="nav-item flex-1 py-1.5 sm:py-2 rounded-full flex flex-col items-center justify-center gap-0.5 z-10 text-slate-400 dark:text-slate-400">
+                <button onclick="switchTab('tabWishlist')" class="nav-item flex-1 py-2 rounded-full flex flex-col items-center justify-center gap-0.5 z-10 text-slate-400 dark:text-slate-400">
                     <i data-lucide="heart" class="w-4 h-4 sm:w-5 sm:h-5"></i>
                     <span class="text-[8px] sm:text-[9px] font-extrabold tracking-tight">Wishlist</span>
                 </button>
 
-                <button onclick="switchTab('tabProfil')" class="nav-item flex-1 py-1.5 sm:py-2 rounded-full flex flex-col items-center justify-center gap-0.5 z-10 text-slate-400 dark:text-slate-400">
+                <button onclick="switchTab('tabProfil')" class="nav-item flex-1 py-2 rounded-full flex flex-col items-center justify-center gap-0.5 z-10 text-slate-400 dark:text-slate-400">
                     <i data-lucide="user" class="w-4 h-4 sm:w-5 sm:h-5"></i>
                     <span class="text-[8px] sm:text-[9px] font-extrabold tracking-tight">Profil</span>
                 </button>
@@ -452,8 +452,8 @@
     <!-- MODAL CATAT TRANSAKSI -->
     <div id="modalCatat" class="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 hidden animate-fadeIn">
         <div class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm" onclick="closeModal('modalCatat')"></div>
-        <div class="relative bg-white dark:bg-slate-800 w-full max-w-md rounded-t-3xl sm:rounded-3xl p-6 border border-slate-100 dark:border-slate-700 shadow-2xl space-y-4 z-10 animate-slideUp">
-            <div class="flex justify-between items-center border-b border-slate-100 dark:border-slate-700 pb-3">
+        <div class="relative bg-white dark:bg-slate-800 w-full max-w-md rounded-t-3xl sm:rounded-3xl p-6 border border-slate-200 dark:border-slate-700 shadow-2xl space-y-4 z-10 animate-slideUp">
+            <div class="flex justify-between items-center border-b border-slate-200 dark:border-slate-700 pb-3">
                 <h3 class="font-extrabold text-sm text-slate-800 dark:text-white">Tambah Catatan Transaksi Harian</h3>
                 <button onclick="closeModal('modalCatat')" class="text-slate-400 hover:text-slate-600"><i data-lucide="x" class="w-5 h-5"></i></button>
             </div>
@@ -504,8 +504,8 @@
     <!-- MODAL TABUNG WISHLIST -->
     <div id="modalFundWishlist" class="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 hidden animate-fadeIn">
         <div class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm" onclick="closeModal('modalFundWishlist')"></div>
-        <div class="relative bg-white dark:bg-slate-800 w-full max-w-md rounded-t-3xl sm:rounded-3xl p-6 border border-slate-100 dark:border-slate-700 shadow-2xl space-y-4 z-10 animate-slideUp">
-            <div class="flex justify-between items-center border-b border-slate-100 dark:border-slate-700 pb-3">
+        <div class="relative bg-white dark:bg-slate-800 w-full max-w-md rounded-t-3xl sm:rounded-3xl p-6 border border-slate-200 dark:border-slate-700 shadow-2xl space-y-4 z-10 animate-slideUp">
+            <div class="flex justify-between items-center border-b border-slate-200 dark:border-slate-700 pb-3">
                 <h3 id="fundWishlistTitle" class="font-extrabold text-sm text-slate-800 dark:text-white">Tambah Tabungan Wishlist</h3>
                 <button onclick="closeModal('modalFundWishlist')" class="text-slate-400 hover:text-slate-600"><i data-lucide="x" class="w-5 h-5"></i></button>
             </div>
@@ -527,8 +527,8 @@
     <!-- MODAL LAPORAN CHART -->
     <div id="modalChart" class="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 hidden animate-fadeIn">
         <div class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm" onclick="closeModal('modalChart')"></div>
-        <div class="relative bg-white dark:bg-slate-800 w-full max-w-md rounded-t-3xl sm:rounded-3xl p-6 border border-slate-100 dark:border-slate-700 shadow-2xl space-y-4 z-10 animate-slideUp">
-            <div class="flex justify-between items-center border-b border-slate-100 dark:border-slate-700 pb-3">
+        <div class="relative bg-white dark:bg-slate-800 w-full max-w-md rounded-t-3xl sm:rounded-3xl p-6 border border-slate-200 dark:border-slate-700 shadow-2xl space-y-4 z-10 animate-slideUp">
+            <div class="flex justify-between items-center border-b border-slate-200 dark:border-slate-700 pb-3">
                 <h3 class="font-extrabold text-sm text-slate-800 dark:text-white">Analisis Pengeluaran Harian</h3>
                 <button onclick="closeModal('modalChart')" class="text-slate-400 hover:text-slate-600"><i data-lucide="x" class="w-5 h-5"></i></button>
             </div>
@@ -542,8 +542,8 @@
     <!-- MODAL SIMULASI TABUNGAN -->
     <div id="modalSimulasi" class="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 hidden animate-fadeIn">
         <div class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm" onclick="closeModal('modalSimulasi')"></div>
-        <div class="relative bg-white dark:bg-slate-800 w-full max-w-md rounded-t-3xl sm:rounded-3xl p-6 border border-slate-100 dark:border-slate-700 shadow-2xl space-y-4 z-10 animate-slideUp">
-            <div class="flex justify-between items-center border-b border-slate-100 dark:border-slate-700 pb-3">
+        <div class="relative bg-white dark:bg-slate-800 w-full max-w-md rounded-t-3xl sm:rounded-3xl p-6 border border-slate-200 dark:border-slate-700 shadow-2xl space-y-4 z-10 animate-slideUp">
+            <div class="flex justify-between items-center border-b border-slate-200 dark:border-slate-700 pb-3">
                 <h3 class="font-extrabold text-sm text-slate-800 dark:text-white">Kalkulator Simulasi Tabungan</h3>
                 <button onclick="closeModal('modalSimulasi')" class="text-slate-400 hover:text-slate-600"><i data-lucide="x" class="w-5 h-5"></i></button>
             </div>
@@ -570,8 +570,8 @@
     <!-- MODAL TAMBAH TABUNGAN -->
     <div id="modalAddPocket" class="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 hidden animate-fadeIn">
         <div class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm" onclick="closeModal('modalAddPocket')"></div>
-        <div class="relative bg-white dark:bg-slate-800 w-full max-w-md rounded-t-3xl sm:rounded-3xl p-6 border border-slate-100 dark:border-slate-700 shadow-2xl space-y-4 z-10 animate-slideUp">
-            <div class="flex justify-between items-center border-b border-slate-100 dark:border-slate-700 pb-3">
+        <div class="relative bg-white dark:bg-slate-800 w-full max-w-md rounded-t-3xl sm:rounded-3xl p-6 border border-slate-200 dark:border-slate-700 shadow-2xl space-y-4 z-10 animate-slideUp">
+            <div class="flex justify-between items-center border-b border-slate-200 dark:border-slate-700 pb-3">
                 <h3 class="font-extrabold text-sm text-slate-800 dark:text-white">Buat Tabungan Baru</h3>
                 <button onclick="closeModal('modalAddPocket')" class="text-slate-400 hover:text-slate-600"><i data-lucide="x" class="w-5 h-5"></i></button>
             </div>
@@ -602,8 +602,8 @@
     <!-- MODAL SETOR / TARIK TABUNGAN -->
     <div id="modalPocketAction" class="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 hidden animate-fadeIn">
         <div class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm" onclick="closeModal('modalPocketAction')"></div>
-        <div class="relative bg-white dark:bg-slate-800 w-full max-w-md rounded-t-3xl sm:rounded-3xl p-6 border border-slate-100 dark:border-slate-700 shadow-2xl space-y-4 z-10 animate-slideUp">
-            <div class="flex justify-between items-center border-b border-slate-100 dark:border-slate-700 pb-3">
+        <div class="relative bg-white dark:bg-slate-800 w-full max-w-md rounded-t-3xl sm:rounded-3xl p-6 border border-slate-200 dark:border-slate-700 shadow-2xl space-y-4 z-10 animate-slideUp">
+            <div class="flex justify-between items-center border-b border-slate-200 dark:border-slate-700 pb-3">
                 <h3 id="pocketActionTitle" class="font-extrabold text-sm text-slate-800 dark:text-white">Setor Tabungan</h3>
                 <button onclick="closeModal('modalPocketAction')" class="text-slate-400 hover:text-slate-600"><i data-lucide="x" class="w-5 h-5"></i></button>
             </div>
@@ -627,8 +627,8 @@
     <!-- MODAL TAMBAH WISHLIST -->
     <div id="modalAddWishlist" class="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 hidden animate-fadeIn">
         <div class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm" onclick="closeModal('modalAddWishlist')"></div>
-        <div class="relative bg-white dark:bg-slate-800 w-full max-w-md rounded-t-3xl sm:rounded-3xl p-6 border border-slate-100 dark:border-slate-700 shadow-2xl space-y-4 z-10 animate-slideUp">
-            <div class="flex justify-between items-center border-b border-slate-100 dark:border-slate-700 pb-3">
+        <div class="relative bg-white dark:bg-slate-800 w-full max-w-md rounded-t-3xl sm:rounded-3xl p-6 border border-slate-200 dark:border-slate-700 shadow-2xl space-y-4 z-10 animate-slideUp">
+            <div class="flex justify-between items-center border-b border-slate-200 dark:border-slate-700 pb-3">
                 <h3 class="font-extrabold text-sm text-slate-800 dark:text-white">Tambah Item Wishlist</h3>
                 <button onclick="closeModal('modalAddWishlist')" class="text-slate-400 hover:text-slate-600"><i data-lucide="x" class="w-5 h-5"></i></button>
             </div>
@@ -659,8 +659,8 @@
     <!-- MODAL CONTROL ADMIN LENGKAP -->
     <div id="modalAdmin" class="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 hidden animate-fadeIn">
         <div class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm" onclick="closeModal('modalAdmin')"></div>
-        <div class="relative bg-white dark:bg-slate-800 w-full max-w-lg rounded-t-3xl sm:rounded-3xl p-6 border border-slate-100 dark:border-slate-700 shadow-2xl space-y-4 max-h-[85vh] overflow-y-auto z-10 animate-slideUp">
-            <div class="flex justify-between items-center border-b border-slate-100 dark:border-slate-700 pb-3">
+        <div class="relative bg-white dark:bg-slate-800 w-full max-w-lg rounded-t-3xl sm:rounded-3xl p-6 border border-slate-200 dark:border-slate-700 shadow-2xl space-y-4 max-h-[85vh] overflow-y-auto z-10 animate-slideUp">
+            <div class="flex justify-between items-center border-b border-slate-200 dark:border-slate-700 pb-3">
                 <div class="flex items-center gap-2">
                     <span class="p-1.5 bg-amber-100 text-amber-600 rounded-lg"><i data-lucide="shield" class="w-4 h-4"></i></span>
                     <h3 class="font-extrabold text-sm text-slate-800 dark:text-white">Panel Kontrol Admin</h3>
@@ -668,7 +668,7 @@
                 <button onclick="closeModal('modalAdmin')" class="text-slate-400 hover:text-slate-600"><i data-lucide="x" class="w-5 h-5"></i></button>
             </div>
 
-            <div class="flex gap-2 border-b border-slate-100 dark:border-slate-700 pb-2">
+            <div class="flex gap-2 border-b border-slate-200 dark:border-slate-700 pb-2">
                 <button onclick="switchAdminTab('list')" id="btnAdminTabList" class="px-3 py-1.5 bg-amber-50 dark:bg-amber-900/40 text-amber-600 dark:text-amber-300 rounded-xl text-xs font-bold">Daftar Pengguna</button>
                 <button onclick="switchAdminTab('add')" id="btnAdminTabAdd" class="px-3 py-1.5 bg-slate-100 dark:bg-slate-700 text-slate-500 rounded-xl text-xs font-bold">+ Tambah User Baru</button>
             </div>
@@ -854,9 +854,9 @@
             const badge = document.getElementById('roleBadge');
             badge.innerText = currentUser.role.toUpperCase();
             if (currentUser.role === 'admin') {
-                badge.className = "px-2 py-0.2 bg-amber-400/30 text-amber-200 border border-amber-300/40 rounded-full text-[8px] sm:text-[9px] font-extrabold uppercase";
+                badge.className = "px-2 py-0.5 bg-amber-400/30 text-amber-200 border border-amber-300/40 rounded-full text-[8px] sm:text-[9px] font-extrabold uppercase";
             } else {
-                badge.className = "px-2 py-0.2 bg-white/20 text-white border border-white/30 rounded-full text-[8px] sm:text-[9px] font-extrabold uppercase";
+                badge.className = "px-2 py-0.5 bg-white/20 text-white border border-white/30 rounded-full text-[8px] sm:text-[9px] font-extrabold uppercase";
             }
 
             renderUserAvatar();
@@ -1009,9 +1009,9 @@
                 const sign = isIncome ? '+' : '-';
 
                 return `
-                    <div class="p-3 sm:p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-900/50 border border-slate-100 dark:border-slate-700/50 flex justify-between items-start hover:border-slate-300 dark:hover:border-slate-600 transition">
-                        <div class="flex items-start gap-2.5 sm:gap-3">
-                            <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl ${iconBg} flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200/60 dark:border-slate-700/50 flex justify-between items-start hover:border-slate-300 dark:hover:border-slate-600 transition">
+                        <div class="flex items-start gap-3">
+                            <div class="w-9 h-9 rounded-xl ${iconBg} flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
                                 <i data-lucide="${iconName}" class="w-4 h-4"></i>
                             </div>
                             <div class="min-w-0">
@@ -1119,10 +1119,10 @@
             container.innerHTML = userPockets.map(p => {
                 const pct = Math.min(Math.round((p.current / p.target) * 100), 100);
                 return `
-                    <div class="bg-white dark:bg-slate-800 p-4 sm:p-5 rounded-3xl border border-slate-100 dark:border-slate-700/60 shadow-sm space-y-3">
+                    <div class="bg-white dark:bg-slate-800 p-4 sm:p-5 rounded-3xl border border-slate-200/80 dark:border-slate-700/60 shadow-sm space-y-3">
                         <div class="flex justify-between items-start">
                             <div class="flex items-center gap-3">
-                                <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-sky-100 dark:bg-sky-900/40 text-sky-600 dark:text-sky-300 flex items-center justify-center">
+                                <div class="w-10 h-10 rounded-2xl bg-sky-100 dark:bg-sky-900/40 text-sky-600 dark:text-sky-300 flex items-center justify-center shadow-sm">
                                     <i data-lucide="piggy-bank" class="w-5 h-5"></i>
                                 </div>
                                 <div>
@@ -1261,10 +1261,10 @@
                 const isAchieved = w.current >= w.target;
 
                 return `
-                    <div class="bg-white dark:bg-slate-800 p-4 sm:p-4.5 rounded-3xl border border-slate-100 dark:border-slate-700/60 shadow-sm space-y-3">
+                    <div class="bg-white dark:bg-slate-800 p-4 sm:p-4.5 rounded-3xl border border-slate-200/80 dark:border-slate-700/60 shadow-sm space-y-3">
                         <div class="flex items-center gap-3">
-                            <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-indigo-50 dark:bg-indigo-900/40 text-indigo-500 flex items-center justify-center flex-shrink-0">
-                                <i data-lucide="gift" class="w-5 h-5 sm:w-6 sm:h-6"></i>
+                            <div class="w-12 h-12 rounded-2xl bg-indigo-50 dark:bg-indigo-900/40 text-indigo-500 flex items-center justify-center flex-shrink-0 shadow-sm">
+                                <i data-lucide="gift" class="w-6 h-6"></i>
                             </div>
                             <div class="flex-1 min-w-0">
                                 <div class="flex justify-between items-start">
@@ -1430,7 +1430,7 @@
         function renderAdminUserList() {
             const container = document.getElementById('adminUserList');
             container.innerHTML = users.map(u => `
-                <div class="p-3 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 space-y-2 text-xs">
+                <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 space-y-2 text-xs">
                     <div class="flex justify-between items-center">
                         <div>
                             <p class="font-bold text-slate-800 dark:text-slate-200">${u.name} (@${u.username})</p>

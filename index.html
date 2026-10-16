@@ -413,7 +413,7 @@
                     </div>
                     <div>
                         <h3 class="font-extrabold text-sm text-white">AI Receipt Scanner</h3>
-                        <p class="text-[10px] text-slate-400">Arahkan struk atau unggah dari galeri</p>
+                        <p class="text-[10px] text-slate-400">Arahkan struk dengan jelas ke dalam kotak</p>
                     </div>
                 </div>
                 <button onclick="closeCameraModal()" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-slate-300 hover:text-white transition">
@@ -447,7 +447,7 @@
 
             <div class="z-20 pt-3 space-y-2">
                 <div id="cameraControls" class="flex justify-around items-center">
-                    <label for="uploadReceiptInput" class="w-12 h-12 rounded-2xl bg-white/10 hover:bg-white/20 flex items-center justify-center cursor-pointer transition border border-white/10 shadow-lg">
+                    <label for="uploadReceiptInput" class="w-12 h-12 rounded-2xl bg-white/10 hover:bg-white/20 flex items-center justify-center cursor-pointer transition border border-white/10">
                         <i data-lucide="image" class="w-5 h-5 text-slate-300"></i>
                     </label>
                     <input type="file" id="uploadReceiptInput" accept="image/*" class="hidden" onchange="handleReceiptUpload(event)">
@@ -1219,38 +1219,13 @@
 
         function handleReceiptUpload(event) {
             const file = event.target.files[0];
-            if (!file) return;
-
-            if (!file.type.startsWith('image/')) {
-                alert('File yang diunggah harus berupa gambar (JPG, PNG).');
-                return;
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    processReceiptImageBase64(e.target.result);
+                };
+                reader.readAsDataURL(file);
             }
-
-            openModal('modalCamera');
-            document.getElementById('cameraVideo').classList.add('hidden');
-            document.getElementById('cameraControls').classList.add('hidden');
-            document.getElementById('retakeControls').classList.remove('hidden');
-            document.getElementById('laserScanner').classList.remove('hidden');
-            document.getElementById('aiScanLoader').classList.remove('hidden');
-            document.getElementById('aiScanStatusText').innerText = "Memuat gambar dari galeri...";
-
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                const base64Data = e.target.result;
-                const previewImg = document.getElementById('scannedPreviewImg');
-                previewImg.src = base64Data;
-                previewImg.classList.remove('hidden');
-                
-                processReceiptImageBase64(base64Data);
-            };
-
-            reader.onerror = function() {
-                alert('Gagal membaca file dari galeri.');
-                resetCameraPreview();
-            };
-
-            reader.readAsDataURL(file);
-            event.target.value = '';
         }
 
         function captureAndAnalyzeReceipt() {
@@ -1283,7 +1258,7 @@
             document.getElementById('aiScanStatusText').innerText = "Memverifikasi & membaca data struk...";
 
             try {
-                const apiKey = ""; // Masukkan Gemini API Key jika diperlukan
+                const apiKey = ""; // Masukkan Gemini API Key jika ada
                 const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
 
                 const cleanBase64 = base64Data.split(',')[1];
@@ -1337,7 +1312,7 @@ Return JSON murni saja tanpa markdown/penjelasan tambahan:
                     const parsedData = JSON.parse(cleanJson);
 
                     if (parsedData.isReceipt === false) {
-                        alert("Gambar tidak terdeteksi sebagai struk atau nota pembayaran yang valid!");
+                        alert("Gambar tidak terdeteksi sebagai struk atau nota pembayaran!");
                         resetCameraPreview();
                         return;
                     }

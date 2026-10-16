@@ -90,7 +90,7 @@
         }
 
         .nav-glider {
-            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         ::-webkit-scrollbar { width: 4px; height: 4px; }
@@ -374,10 +374,10 @@
             © 2026 CLOUDSCHIO. All rights reserved.
         </footer>
 
-        <!-- iOS LIQUID GLASS DOCK (CENTERED GLIDER & BUTTONS) -->
+        <!-- iOS LIQUID GLASS DOCK (PERFECT CENTERED GLIDER) -->
         <div class="fixed bottom-4 left-0 right-0 z-40 flex justify-center px-4 pointer-events-none">
-            <div class="glass-dock rounded-full p-2 flex items-center justify-around relative max-w-sm w-full pointer-events-auto">
-                <div id="navGlider" class="nav-glider absolute top-2 bottom-2 rounded-full bg-sky-500/20 border border-sky-400/40 backdrop-blur-xl"></div>
+            <div id="glassDockContainer" class="glass-dock rounded-full p-1.5 flex items-center justify-between relative max-w-sm w-full pointer-events-auto">
+                <div id="navGlider" class="nav-glider absolute top-1.5 bottom-1.5 rounded-full bg-sky-500/20 border border-sky-400/40 backdrop-blur-xl"></div>
 
                 <button onclick="switchTab('tabKeuangan')" class="nav-item flex-1 py-2 rounded-full flex flex-col items-center justify-center gap-0.5 z-10 text-sky-600 dark:text-sky-400">
                     <i data-lucide="wallet" class="w-4 h-4 sm:w-5 sm:h-5"></i>
@@ -923,7 +923,7 @@
             document.getElementById(tabId).classList.remove('hidden');
             activeTab = tabId;
 
-            const dock = document.querySelector('.glass-dock');
+            const dock = document.getElementById('glassDockContainer');
             const navItems = Array.from(dock.querySelectorAll('.nav-item'));
             const glider = document.getElementById('navGlider');
 
@@ -942,9 +942,16 @@
                 }
             });
 
-            const itemWidth = 100 / navItems.length;
-            glider.style.width = `${itemWidth}%`;
-            glider.style.transform = `translateX(${activeIndex * 100}%)`;
+            // Akurasi posisi glider persis center mengikuti flex container
+            const activeItem = navItems[activeIndex];
+            const dockRect = dock.getBoundingClientRect();
+            const itemRect = activeItem.getBoundingClientRect();
+            
+            const leftOffset = itemRect.left - dockRect.left - 6; // Padding adjustment
+            const itemWidth = itemRect.width;
+
+            glider.style.width = `${itemWidth}px`;
+            glider.style.transform = `translateX(${leftOffset}px)`;
         }
 
         function renderDashboard() {
